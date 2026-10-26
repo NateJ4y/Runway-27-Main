@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
+import type { FormEvent } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { ArrowDownRight, ArrowRight, ArrowUpRight, CalendarDays, Check, ChevronDown, Clock3, Instagram, MapPin, Menu as MenuIcon, Sparkles, UtensilsCrossed, X } from 'lucide-react';
+import { ArrowDownRight, ArrowRight, ArrowUpRight, CalendarDays, Check, Clock3, Instagram, MapPin, Menu as MenuIcon, Sparkles, UtensilsCrossed, X } from 'lucide-react';
 import Scene from './Scene';
 import { events, menuItems } from './data';
 
@@ -16,7 +17,7 @@ export default function App() {
   const filteredMenu = useMemo(() => menuCategory === 'All' ? menuItems : menuItems.filter((item) => item.category === menuCategory), [menuCategory]);
   const closeNav = () => setMenuOpen(false);
   const openBooking = () => { setBookingSent(false); setBookingOpen(true); closeNav(); };
-  const submitBooking = (e: React.FormEvent<HTMLFormElement>) => { e.preventDefault(); setBookingSent(true); };
+  const submitBooking = (e: FormEvent<HTMLFormElement>) => { e.preventDefault(); setBookingSent(true); };
 
   return <div className="site-shell">
     <div className="announcement"><span className="announcement-dot" /> THE CITY AFTER DARK, REIMAGINED <span className="announcement-line" /> <span>DINING · LOUNGE · EXPERIENCES</span></div>
