@@ -9,6 +9,9 @@ npm run dev
 ```
 Production build: `npm run build`; preview: `npm run preview`.
 
+## Brand assets
+- `public/runway27-logo.svg` — vector Runway27 Kitchen & Bar wordmark used in the header and footer. This is a web-ready approximation of the supplied gold/black reference; replace with the original high-resolution artwork when the source image can be uploaded as a repository asset.
+
 ## Included
 - Interactive WebGL runway hero with reduced-motion/mobile-friendly fallback
 - Dining, lounge, events, menu, reservation, and contact sections
