@@ -22,7 +22,7 @@ export default function App() {
   return <div className="site-shell">
     <div className="announcement"><span className="announcement-dot" /> THE CITY AFTER DARK, REIMAGINED <span className="announcement-line" /> <span>DINING · LOUNGE · EXPERIENCES</span></div>
     <header className="site-header">
-      <a href="#home" className="brand" onClick={closeNav} aria-label="Runway27 home"><img className="brand-logo" src="/runway27-logo.svg" alt="Runway27 Kitchen & Bar" /></a>
+      <a href="#home" className="brand" onClick={closeNav} aria-label="Runway27 home"><span className="brand-name">RUNWAY<span>27</span></span></a>
       <nav className={menuOpen ? 'nav-links nav-open' : 'nav-links'} aria-label="Main navigation">
         <a href="#experience" onClick={closeNav}>The experience</a><a href="#menu" onClick={closeNav}>Menu</a><a href="#events" onClick={closeNav}>What’s on</a><a href="#story" onClick={closeNav}>Our story</a>
         <button className="mobile-book" onClick={openBooking}>Book a table <ArrowUpRight size={15}/></button>
