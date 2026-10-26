@@ -22,7 +22,7 @@ export default function App() {
   return <div className="site-shell">
     <div className="announcement"><span className="announcement-dot" /> THE CITY AFTER DARK, REIMAGINED <span className="announcement-line" /> <span>DINING · LOUNGE · EXPERIENCES</span></div>
     <header className="site-header">
-      <a href="#home" className="brand" onClick={closeNav} aria-label="Runway27 home"><span className="brand-mark">R<span>27</span></span><span className="brand-name">RUNWAY<span>27</span></span></a>
+      <a href="#home" className="brand" onClick={closeNav} aria-label="Runway27 home"><img className="brand-logo" src="/runway27-logo.svg" alt="Runway27 Kitchen & Bar" /></a>
       <nav className={menuOpen ? 'nav-links nav-open' : 'nav-links'} aria-label="Main navigation">
         <a href="#experience" onClick={closeNav}>The experience</a><a href="#menu" onClick={closeNav}>Menu</a><a href="#events" onClick={closeNav}>What’s on</a><a href="#story" onClick={closeNav}>Our story</a>
         <button className="mobile-book" onClick={openBooking}>Book a table <ArrowUpRight size={15}/></button>
@@ -103,7 +103,7 @@ export default function App() {
     </main>
 
     <footer className="site-footer">
-      <div className="footer-top"><a href="#home" className="brand footer-brand"><span className="brand-mark">R<span>27</span></span><span className="brand-name">RUNWAY<span>27</span></span></a><p>Good food. Great energy.<br/>A night worth remembering.</p><a href="#home" className="back-top">BACK TO TOP <ArrowUpRight size={14}/></a></div>
+      <div className="footer-top"><a href="#home" className="brand footer-brand"><img className="brand-logo" src="/runway27-logo.svg" alt="Runway27 Kitchen & Bar" /></a><p>Good food. Great energy.<br/>A night worth remembering.</p><a href="#home" className="back-top">BACK TO TOP <ArrowUpRight size={14}/></a></div>
       <div className="footer-bottom"><span>© 2026 RUNWAY27 · CONCEPT WEBSITE</span><div><a href="#experience">EXPERIENCE</a><a href="#menu">MENU</a><a href="#events">EVENTS</a></div><div className="footer-social"><a href="#contact" aria-label="Instagram"><Instagram size={16}/></a><a href="mailto:hello@runway27.example" aria-label="Email Runway27"><ArrowUpRight size={16}/></a></div></div>
       <div id="contact" className="footer-contact"><span><MapPin size={13}/> Address to be confirmed</span><span><Clock3 size={13}/> Hours to be confirmed</span><span><UtensilsCrossed size={13}/> Dining · Lounge · Events</span></div>
     </footer>
