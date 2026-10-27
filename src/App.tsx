@@ -22,7 +22,14 @@ function ParallaxImage({ src, alt, className = '' }: { src: string; alt: string;
 }
 
 export default function App() {
-  const heroRef = useRef<HTMLElement>(null);\n  const reduceMotion = useReducedMotion();\n  const { scrollYProgress: heroProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });\n  const heroScale = useTransform(heroProgress, [0, 1], reduceMotion ? [1, 1] : [1, 1.16]);\n  const heroImageY = useTransform(heroProgress, [0, 1], reduceMotion ? [0, 0] : [0, 90]);\n  const heroContentY = useTransform(heroProgress, [0, 1], reduceMotion ? [0, 0] : [0, -70]);\n  const heroContentOpacity = useTransform(heroProgress, [0, 0.72], [1, 0]);\n  const [menuOpen, setMenuOpen] = useState(false);
+  const heroRef = useRef<HTMLElement>(null);
+  const reduceMotion = useReducedMotion();
+  const { scrollYProgress: heroProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
+  const heroScale = useTransform(heroProgress, [0, 1], reduceMotion ? [1, 1] : [1, 1.16]);
+  const heroImageY = useTransform(heroProgress, [0, 1], reduceMotion ? [0, 0] : [0, 90]);
+  const heroContentY = useTransform(heroProgress, [0, 1], reduceMotion ? [0, 0] : [0, -70]);
+  const heroContentOpacity = useTransform(heroProgress, [0, 0.72], [1, 0]);
+  const [menuOpen, setMenuOpen] = useState(false);
   const [menuCategory, setMenuCategory] = useState<(typeof categories)[number]>('All');
   const [bookingOpen, setBookingOpen] = useState(false);
   const [bookingSent, setBookingSent] = useState(false);
@@ -46,7 +53,8 @@ export default function App() {
     </header>
 
     <main>
-      <section className="hero" id="home">
+      <section className="hero" id="home" ref={heroRef}>
+        <motion.div className="hero-image-layer" style={{ scale: heroScale, y: heroImageY }} aria-hidden="true" />
         <Scene />
         <div className="hero-vignette" />
         <div className="hero-topline"><span>26° 12' S — 28° 02' E</span><span className="topline-center"><i/> A PLACE TO ARRIVE</span><span>EST. MMXXVII</span></div>
