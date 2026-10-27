@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import type { FormEvent } from 'react';
 import { AnimatePresence, motion, useReducedMotion, useScroll, useSpring, useTransform } from 'framer-motion';
 import { ArrowDownRight, ArrowRight, ArrowUpRight, CalendarDays, Check, Clock3, Instagram, MapPin, Menu as MenuIcon, Sparkles, UtensilsCrossed, X, Phone, Plane, Users, Bike, Ticket } from 'lucide-react';
@@ -22,7 +22,7 @@ function ParallaxImage({ src, alt, className = '' }: { src: string; alt: string;
 }
 
 export default function App() {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const heroRef = useRef<HTMLElement>(null);\n  const reduceMotion = useReducedMotion();\n  const { scrollYProgress: heroProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });\n  const heroScale = useTransform(heroProgress, [0, 1], reduceMotion ? [1, 1] : [1, 1.16]);\n  const heroImageY = useTransform(heroProgress, [0, 1], reduceMotion ? [0, 0] : [0, 90]);\n  const heroContentY = useTransform(heroProgress, [0, 1], reduceMotion ? [0, 0] : [0, -70]);\n  const heroContentOpacity = useTransform(heroProgress, [0, 0.72], [1, 0]);\n  const [menuOpen, setMenuOpen] = useState(false);
   const [menuCategory, setMenuCategory] = useState<(typeof categories)[number]>('All');
   const [bookingOpen, setBookingOpen] = useState(false);
   const [bookingSent, setBookingSent] = useState(false);
@@ -50,7 +50,7 @@ export default function App() {
         <Scene />
         <div className="hero-vignette" />
         <div className="hero-topline"><span>26° 12' S — 28° 02' E</span><span className="topline-center"><i/> A PLACE TO ARRIVE</span><span>EST. MMXXVII</span></div>
-        <motion.div className="hero-content" initial="hidden" animate="visible" variants={{ visible: { transition: { staggerChildren: 0.12 } } }}>
+        <motion.div className="hero-content" style={{ y: heroContentY, opacity: heroContentOpacity }} initial="hidden" animate="visible" variants={{ visible: { transition: { staggerChildren: 0.12 } } }}>
           <motion.p className="eyebrow" variants={fadeUp}><span className="eyebrow-rule"/> YOUR TABLE WITH A VIEW</motion.p>
           <motion.h1 variants={fadeUp}>Good times.<br/><em>Great altitude.</em></motion.h1>
           <motion.p className="hero-copy" variants={fadeUp}>Good food, family-friendly fun and front-row views of the runway. Your next favourite spot is in Germiston.</motion.p>
