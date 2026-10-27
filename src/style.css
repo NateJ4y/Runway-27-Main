@@ -24,3 +24,65 @@
 .hero-stamp{animation:stamp-arrive .9s .7s both cubic-bezier(.16,1,.3,1)}
 @keyframes stamp-arrive{from{opacity:0;transform:rotate(-14deg) scale(.72)}to{opacity:1;transform:rotate(10deg) scale(1)}}
 @media(prefers-reduced-motion:reduce){.hero-stamp{animation:none}.parallax-frame img{transform:none!important}.experience-card img,.event-image img{transition:none}.scroll-progress{display:none}}
+
+/* Runway 27 Kitchen & Bar promotions system */
+.promotions-section{background:#0c0b0a;color:#f5f0e6;position:relative;overflow:hidden}
+.promotions-section:before{content:"";position:absolute;top:8%;right:-15rem;width:34rem;height:34rem;border-radius:50%;background:radial-gradient(circle,rgba(188,133,44,.1),transparent 68%);pointer-events:none}
+.promos-heading{display:flex;align-items:end;justify-content:space-between;gap:2rem;margin:2.2rem 0 3rem;position:relative}
+.promos-heading h2{font-family:var(--serif,'Playfair Display',Georgia,serif);font-size:clamp(2.8rem,6vw,5.5rem);line-height:.98;letter-spacing:-.055em;margin:0}
+.promos-heading h2 em,.secondary-promo h3 em{color:var(--gold,#d8b46b);font-weight:400}
+.promos-heading>p{max-width:350px;color:#b9b2a6;line-height:1.75;margin:0 0 .3rem}
+.promo-feature-grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(280px,.7fr);gap:1.25rem}
+.promo-card{min-width:0;border:1px solid rgba(222,190,125,.19);background:#151310;overflow:hidden;border-radius:4px}
+.promo-image{height:255px;position:relative;overflow:hidden;background:#211a11}
+.promo-image:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.25),transparent 35%,rgba(0,0,0,.66))}
+.promo-image>img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1);filter:saturate(.82)}
+.promo-card:hover .promo-image>img{transform:scale(1.045);filter:saturate(1)}
+.promo-tag{position:absolute;top:1rem;left:1rem;z-index:1;border:1px solid rgba(236,201,129,.65);background:rgba(13,11,8,.72);color:#f0d79b;padding:.48rem .65rem;font-size:.62rem;letter-spacing:.14em;font-weight:700}
+.promo-price{position:absolute;z-index:1;bottom:1rem;right:1.2rem;font-family:var(--serif,'Playfair Display',Georgia,serif);font-size:clamp(2.5rem,4vw,3.8rem);color:#fff1c9;text-shadow:0 2px 16px #000}
+.promo-price small{font-family:inherit;font-size:.85rem;color:#fff}
+.promo-sticker{position:absolute;z-index:1;right:1rem;bottom:1rem;width:94px;height:94px;border-radius:50%;display:grid;place-content:center;text-align:center;background:#e5c26f;color:#21170a;font-size:1.05rem;font-weight:900;line-height:1.05;transform:rotate(9deg);box-shadow:0 5px 22px #0007}
+.promo-body{padding:1.5rem}
+.promo-meta{display:flex;flex-wrap:wrap;gap:.8rem 1.25rem;color:#cdbb92;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase}
+.promo-meta span{display:inline-flex;align-items:center;gap:.4rem}
+.promo-body h3{font-family:var(--serif,'Playfair Display',Georgia,serif);font-size:clamp(1.65rem,2.5vw,2.3rem);line-height:1.1;margin:1rem 0 .3rem;letter-spacing:-.03em}
+.promo-subtitle{font-size:.86rem!important;color:#e7c979!important;margin:.2rem 0 .8rem!important;font-weight:600}
+.promo-body>p{color:#bdb6aa;font-size:.9rem;line-height:1.7}
+.promo-pills{display:flex;flex-wrap:wrap;gap:.45rem;margin:1.1rem 0 1.35rem}
+.promo-pills span{font-size:.67rem;border:1px solid #ffffff20;border-radius:100px;padding:.45rem .65rem;color:#e9dfcb}
+.promo-body .button{display:inline-flex;text-decoration:none;align-items:center;gap:.6rem}
+.promo-text-link{display:inline-flex;align-items:center;gap:.55rem;color:#e7c979;text-decoration:none;font-size:.82rem;font-weight:700;margin-top:.45rem;transition:gap .25s ease}
+.promo-text-link:hover{gap:.85rem}
+.weekday-block{margin-top:4.5rem}
+.weekday-heading{display:flex;justify-content:space-between;align-items:end;gap:1rem;margin-bottom:1.25rem}
+.weekday-heading h3{font-family:var(--serif,'Playfair Display',Georgia,serif);font-size:clamp(2rem,4vw,3rem);margin:.4rem 0 0;letter-spacing:-.04em}
+.sit-down-note{border:1px solid #c8a35d8c;color:#e7c979;font-size:.64rem;letter-spacing:.14em;padding:.55rem .7rem;white-space:nowrap}
+.weekday-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.8rem}
+.weekday-card{padding:1.25rem 1.15rem 1.35rem;border:1px solid #ffffff18;background:linear-gradient(145deg,#1a1712,#11100e);min-width:0;transition:border-color .3s ease,background .3s ease}
+.weekday-card:hover{border-color:#d7b66c88;background:linear-gradient(145deg,#211b10,#14120f)}
+.weekday-day{display:flex;justify-content:space-between;align-items:center;color:#e8c879;font-size:.67rem;font-weight:800;letter-spacing:.12em}
+.weekday-day i{font-style:normal;color:#81786a;font-family:var(--serif,Georgia,serif);font-size:1.1rem}
+.weekday-card h4{font-family:var(--serif,'Playfair Display',Georgia,serif);font-size:1.35rem;line-height:1.15;margin:1.6rem 0 .65rem}
+.weekday-card p{min-height:5.1rem;color:#bdb6aa;font-size:.83rem;line-height:1.65;margin:0}
+.weekday-card strong{display:block;color:#f1d58b;font-size:1.8rem;margin-top:1.15rem;line-height:1}
+.weekday-card strong small{font-family:var(--sans,'DM Sans',Arial,sans-serif);font-size:.57rem;letter-spacing:.1em;color:#b9ad95;vertical-align:middle}
+.promo-terms{font-size:.72rem;color:#938b7d;margin-top:1rem}
+.promo-bottom-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2.4rem}
+.secondary-promo{position:relative;overflow:hidden;padding:1.8rem;border:1px solid #ffffff1c;background:radial-gradient(ellipse at 100% 0,rgba(203,159,76,.14),transparent 55%),#151310;min-height:300px}
+.secondary-icon{display:grid;place-items:center;width:46px;height:46px;border:1px solid #d5b46a77;border-radius:50%;color:#e7c979;margin-bottom:1.3rem}
+.secondary-promo>.promo-tag{position:static;display:inline-block;margin-bottom:.8rem}
+.secondary-promo h3{font-family:var(--serif,'Playfair Display',Georgia,serif);font-size:clamp(1.8rem,3vw,2.6rem);line-height:1.1;margin:.45rem 0 1rem;letter-spacing:-.035em}
+.secondary-promo p{max-width:520px;color:#bdb6aa;font-size:.9rem;line-height:1.75}
+.secondary-promo p strong{color:#f1d58b}
+.secondary-promo>small{display:block;color:#918878;font-size:.7rem;margin:.7rem 0}
+.secondary-promo .promo-text-link{margin-top:.7rem}
+.amenities-strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.7rem;margin-top:2rem;padding:1.25rem 0;border-top:1px solid #ffffff1c;border-bottom:1px solid #ffffff1c}
+.amenities-strip>span{display:flex;align-items:center;justify-content:center;gap:.55rem;color:#d6cbb7;font-size:.76rem;text-align:center}
+.amenities-strip svg{color:#e1bf72;flex-shrink:0}
+.pool-icon{display:inline-grid;place-items:center;width:18px;height:18px;border:1px solid #e1bf72;border-radius:50%;font-size:.7rem;color:#e1bf72;flex-shrink:0}
+.footer-contact{display:flex;flex-wrap:wrap;gap:.8rem 1.5rem;padding:1.25rem 0;color:#bcb4a7;font-size:.76rem}
+.footer-contact span,.footer-contact a{display:inline-flex;align-items:center;gap:.5rem;color:inherit;text-decoration:none}
+.footer-contact a:hover{color:#e7c979}
+@media(max-width:900px){.promo-feature-grid{grid-template-columns:1fr 1fr}.promo-buffet{grid-column:1/-1}.promo-buffet .promo-image{height:300px}.weekday-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.weekday-card p{min-height:0}.promos-heading{align-items:start;flex-direction:column;gap:1rem}.promos-heading>p{max-width:550px}}
+@media(max-width:600px){.promotions-section{padding-top:4rem;padding-bottom:4rem}.promo-feature-grid,.promo-bottom-grid{grid-template-columns:1fr}.promo-buffet{grid-column:auto}.promo-image,.promo-buffet .promo-image{height:225px}.promo-body{padding:1.15rem}.weekday-heading{align-items:start;flex-direction:column}.weekday-grid{gap:.6rem}.weekday-card{padding:1rem .85rem}.weekday-card h4{font-size:1.15rem;margin-top:1.25rem}.weekday-card p{font-size:.78rem}.weekday-card strong{font-size:1.45rem}.weekday-card strong small{display:block;margin-top:.35rem}.promo-bottom-grid{gap:.75rem}.secondary-promo{padding:1.3rem;min-height:0}.amenities-strip{grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem .4rem}.amenities-strip>span{justify-content:flex-start;font-size:.7rem}.footer-contact{flex-direction:column;align-items:flex-start}.promo-meta{font-size:.62rem}}
+@media(prefers-reduced-motion:reduce){.promo-image>img,.promo-text-link,.weekday-card{transition:none}}
