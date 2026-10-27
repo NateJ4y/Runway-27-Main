@@ -32,8 +32,9 @@ export default function App() {
   const openBooking = () => { setBookingSent(false); setBookingOpen(true); closeNav(); };
   const submitBooking = (e: FormEvent<HTMLFormElement>) => { e.preventDefault(); setBookingSent(true); };
 
-  return <div className="site-shell">\n    <ScrollProgress />
-    <div className="announcement"><span className="announcement-dot" /> THE CITY AFTER DARK, REIMAGINED <span className="announcement-line" /> <span>DINING · LOUNGE · EXPERIENCES</span></div>
+  return <div className="site-shell">
+    <ScrollProgress />
+    <div className="announcement"><span className="announcement-dot" /> GOOD FOOD. GOOD PEOPLE. PLANES OVERHEAD. <span className="announcement-line" /> <span>GERMISTON, SOUTH AFRICA</span></div>
     <header className="site-header">
       <a href="#home" className="brand" onClick={closeNav} aria-label="Runway27 home"><span className="brand-name">RUNWAY<span>27</span></span></a>
       <nav className={menuOpen ? 'nav-links nav-open' : 'nav-links'} aria-label="Main navigation">
@@ -50,10 +51,10 @@ export default function App() {
         <div className="hero-vignette" />
         <div className="hero-topline"><span>26° 12' S — 28° 02' E</span><span className="topline-center"><i/> A PLACE TO ARRIVE</span><span>EST. MMXXVII</span></div>
         <motion.div className="hero-content" initial="hidden" animate="visible" variants={{ visible: { transition: { staggerChildren: 0.12 } } }}>
-          <motion.p className="eyebrow" variants={fadeUp}><span className="eyebrow-rule"/> MORE THAN A NIGHT OUT</motion.p>
-          <motion.h1 variants={fadeUp}>Take the night<br/><em>somewhere.</em></motion.h1>
+          <motion.p className="eyebrow" variants={fadeUp}><span className="eyebrow-rule"/> YOUR TABLE WITH A VIEW</motion.p>
+          <motion.h1 variants={fadeUp}>Good times.<br/><em>Great altitude.</em></motion.h1>
           <motion.p className="hero-copy" variants={fadeUp}>Good food, family-friendly fun and front-row views of the runway. Your next favourite spot is in Germiston.</motion.p>
-          <motion.div className="hero-actions" variants={fadeUp}><button className="button button-gold" onClick={openBooking}>Reserve your moment <ArrowUpRight size={17}/></button><a className="text-link" href="#experience">Explore Runway27 <ArrowDownRight size={16}/></a></motion.div>
+          <motion.div className="hero-actions" variants={fadeUp}><a className="button button-gold" href="https://wa.me/27665760223" target="_blank" rel="noreferrer">Come through <ArrowUpRight size={17}/></a><a className="text-link" href="#experience">Explore Runway27 <ArrowDownRight size={16}/></a></motion.div>
         </motion.div>
         <div className="hero-bottomline"><span>DINING / LOUNGE / EVENTS</span><span className="scroll-cue"><span/> SCROLL TO DISCOVER</span><span>YOUR NIGHT, REDEFINED</span></div>
         <div className="hero-stamp"><Sparkles size={14}/><span>MADE FOR<br/>THE MOMENT</span></div>
@@ -62,8 +63,8 @@ export default function App() {
       <section className="intro section-pad" id="experience">
         <motion.div className="section-kicker" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}><span>01 / THE EXPERIENCE</span><span>YOUR NEW FAVOURITE PLACE</span></motion.div>
         <div className="intro-grid">
-          <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>Come for the flavour.<br/><em>Stay for the feeling.</em></motion.h2>
-          <motion.div className="intro-aside" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}><p>Runway27 is where the evening finds its rhythm. Thoughtful plates, considered cocktails, music in the air and space to make a moment your own.</p><a href="#story" className="circle-link" aria-label="Read our story"><ArrowUpRight size={22}/></a></motion.div>
+          <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>Big plates.<br/><em>Big little moments.</em></motion.h2>
+          <motion.div className="intro-aside" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}><p>Bring the kids, bring your crew, bring your appetite. We’ve got good food, cold drinks, pool tables and a runway-side seat for the show.</p><a href="#story" className="circle-link" aria-label="Read our story"><ArrowUpRight size={22}/></a></motion.div>
         </div>
         <div className="experience-grid">
           <motion.article className="experience-card experience-dining" whileHover={{ y: -5 }} transition={{ duration: .3 }}>
