@@ -871,3 +871,55 @@ body { background: var(--paper); }
   .site-header .nav-links{top:100%}
   .announcement{padding-inline:4vw;white-space:nowrap;overflow:hidden}
 }
+
+
+/* RUNWAY27 identity pass — black lacquer, aviation gold, warm ivory */
+:root{
+  --bg:#050505;
+  --paper:#fff5d9;
+  --muted:#b6a98a;
+  --gold:#f6bd28;
+  --line:rgba(246,189,40,.22);
+  --violet:#f6bd28;
+}
+body{background:#050505;color:#fff5d9}
+::selection{background:#f6bd28;color:#080705}
+.announcement{background:linear-gradient(90deg,#8b5a08 0%,#f7c936 22%,#ffe58b 50%,#e8a90e 76%,#8b5a08 100%);color:#100c04}
+.announcement-dot{background:#100c04}
+.announcement-line{background:rgba(16,12,4,.4)}
+.site-header{border-bottom-color:rgba(246,189,40,.3);background:linear-gradient(180deg,rgba(0,0,0,.55),transparent)}
+.brand-name{font-weight:800;letter-spacing:.14em;color:#fff1c3;text-shadow:0 1px 0 #8d5b0a,0 0 18px rgba(246,189,40,.18)}
+.brand-name span{color:#f6bd28;text-shadow:0 0 15px rgba(246,189,40,.4)}
+.nav-links>a:hover{color:#ffda62}
+.header-book,.mobile-book,.button-outline{border-color:rgba(246,189,40,.8)}
+.header-book:hover,.mobile-book:hover{background:#f6bd28;color:#100c04}
+.hero{background:#050505}
+.hero-vignette{background:linear-gradient(90deg,rgba(0,0,0,.94) 0%,rgba(0,0,0,.76) 34%,rgba(0,0,0,.12) 75%,rgba(0,0,0,.45) 100%),linear-gradient(0deg,#050505 0%,transparent 22%,rgba(0,0,0,.2) 80%,rgba(0,0,0,.4) 100%)}
+.eyebrow,.topline-center,.hero-stamp,.menu-price,.event-meta,.quote-orb,.back-top,.footer-contact svg,.story-signoff{color:#f6bd28}
+.eyebrow-rule,.topline-center i,.scroll-cue span,.signoff-line{background:#f6bd28}
+.button-gold,.photo-caption,.event-arrow{background:linear-gradient(135deg,#ffe58b 0%,#f6bd28 48%,#bd7900 100%);color:#100c04}
+.button-gold:hover{background:linear-gradient(135deg,#fff0b8,#ffd84f 55%,#d99200)}
+.circle-link:hover,.experience-card-bottom>a:hover{background:#f6bd28;color:#100c04}
+.intro,.events-section{background:#090909}
+.menu-section{background:#10100f}
+.quote-band{background:radial-gradient(ellipse at center,rgba(246,189,40,.10),transparent 60%),#050505;border-color:rgba(246,189,40,.12)}
+.story-section{background:#10100e}
+.story-image:after{background:linear-gradient(90deg,transparent 65%,#10100e 100%),linear-gradient(0deg,rgba(0,0,0,.4),transparent 50%)}
+.reservation-band{background:#050505}
+.reservation-glow{background:rgba(246,189,40,.12)}
+.site-footer{background:#030303}
+.booking-modal{background:#10100e;border-color:rgba(246,189,40,.4)}
+.booking-form input:focus,.booking-form select:focus,.booking-form textarea:focus{border-color:#f6bd28}
+.success-icon{background:rgba(246,189,40,.14);color:#f6bd28}
+.menu-tab.active{border-color:rgba(246,189,40,.75);color:#ffcf48}
+.menu-tabs{border-bottom-color:rgba(246,189,40,.2)}
+.event-date{color:#ffcf48}
+.promo-price,.promo-sticker{background:linear-gradient(135deg,#ffe58b,#f6bd28 55%,#d38d00);color:#100c04}
+.promo-tag,.weekday-day,.sit-down-note{color:#ffcf48}
+.weekday-card,.secondary-promo{border-color:rgba(246,189,40,.2)}
+.weekday-card:hover,.secondary-promo:hover{border-color:rgba(246,189,40,.65)}
+.mobile-book{background:transparent}
+@media(max-width:720px){
+ .nav-links{background:#070707;border-bottom-color:rgba(246,189,40,.55)}
+ .menu-toggle{border-color:rgba(246,189,40,.35)}
+}
