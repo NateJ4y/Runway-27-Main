@@ -181,3 +181,149 @@ body{background:#17130f;color:#fff3df}
 @media(max-width:900px){.section-pad{padding:80px 5%}.hero-content{left:6%;right:6%}.hero-stamp{right:5%;bottom:12%}.experience-card{min-height:330px}.promo-image{height:240px}}
 @media(max-width:600px){.announcement{font-size:7px;letter-spacing:.07em;gap:7px}.site-header{padding-inline:5%;height:70px}.hero{min-height:780px;min-height:100svh}.hero-content{top:47%;left:6%;right:6%;transform:translateY(-40%)}.hero h1{font-size:clamp(3.3rem,16vw,5.5rem)}.hero-copy{max-width:310px;font-size:.98rem}.hero-actions{align-items:flex-start;flex-direction:column;gap:18px}.hero-stamp{width:85px;height:85px;right:6%;bottom:14%;font-size:.65rem}.hero-topline{top:125px}.hero-bottomline{font-size:7px}.section-pad{padding:70px 5%}.intro h2{font-size:clamp(3.1rem,13vw,5rem)}.experience-grid{grid-template-columns:1fr}.experience-card{min-height:370px}.promos-heading h2{font-size:clamp(3rem,14vw,5rem)}.promo-image{height:220px}.promo-feature-grid{grid-template-columns:1fr}.promo-buffet{grid-column:auto}.weekday-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.weekday-card{padding:1rem .8rem}.weekday-card h4{font-size:1.18rem}.weekday-card p{font-size:.78rem}.secondary-promo h3{font-size:2.1rem}.amenities-strip{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+
+/* Layout and contrast audit fixes — keep these as the final, intentional overrides. */
+:root {
+  --bg: #201811;
+  --paper: #fff3df;
+  --muted: #d0c0aa;
+  --gold: #f2b84b;
+  --line: rgba(255,243,223,.2);
+  color-scheme: dark;
+}
+html { scroll-padding-top: 112px; }
+body { overflow-x: clip; color: var(--paper); }
+.site-shell { width: 100%; overflow: clip; }
+img { max-width: 100%; }
+.site-header { position: absolute; top: 34px; min-height: 78px; height: auto; }
+.nav-links { flex-shrink: 1; min-width: 0; }
+.nav-links > a { white-space: nowrap; }
+.hero {
+  min-height: 760px;
+  height: min(940px, 100svh);
+  max-height: 1020px;
+  background-color: #21170f;
+  background-image: url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=2200&q=88');
+  background-position: center 48%;
+  background-size: cover;
+}
+.scene-canvas { display: none !important; }
+.hero:after {
+  z-index: 0;
+  background: linear-gradient(90deg,rgba(19,13,9,.86) 0%,rgba(19,13,9,.62) 45%,rgba(19,13,9,.16) 100%),
+    linear-gradient(0deg,rgba(19,13,9,.76) 0%,transparent 42%,rgba(19,13,9,.26) 100%);
+}
+.hero-vignette { z-index: 1; background: transparent; }
+.hero-topline, .hero-bottomline { z-index: 3; }
+.hero-content {
+  z-index: 3;
+  top: auto;
+  left: auto;
+  right: auto;
+  position: relative;
+  transform: none;
+  margin: 50px 0 0 8%;
+  width: min(760px, 78%);
+  max-width: 760px;
+}
+.hero h1 { max-width: 100%; overflow-wrap: normal; text-wrap: balance; }
+.hero-copy { color: #fff0dd; text-shadow: 0 1px 12px rgba(0,0,0,.25); }
+.hero-stamp { z-index: 3; }
+.section-kicker { gap: 1rem; line-height: 1.5; }
+.intro, .menu-section { color: #21170f; }
+.intro .section-kicker, .menu-section .section-kicker { color: #98462f; border-color: rgba(33,23,15,.2); }
+.intro-aside p, .menu-intro, .story-copy > p { color: #514438; }
+.promotions-section { color: #fff3df; }
+.promos-heading > p, .promo-terms { color: #e0d0bb; }
+.promo-body { color: #21170f; }
+.promo-body > p { color: #514438; }
+.promo-pills span { color: #493c30; }
+.weekday-card p { color: #514438; }
+.weekday-card strong small { color: #72543a; }
+.secondary-promo p { color: #f0e0cb; }
+.amenities-strip > span { color: #fff3df; }
+.menu-item h3, .menu-item p, .menu-price { overflow-wrap: anywhere; }
+.menu-item p { color: #514438; }
+.menu-disclaimer { color: #65594b; }
+.events-section { color: #fff3df; }
+.event-card > p { color: #e0d0bb; }
+.event-link { color: #fff3df; }
+.site-footer { color: #fff3df; }
+.footer-top > p { color: #e0d0bb; }
+.footer-bottom { color: #c5b7a4; }
+.footer-contact { color: #d8cbb8; }
+.booking-modal { color: #fff3df; }
+.modal-intro, .booking-success p { color: #e0d0bb; }
+.booking-form label { color: #fff3df; }
+.booking-form input, .booking-form select, .booking-form textarea { color: #fff3df; background: #211811; }
+.booking-form input::placeholder, .booking-form textarea::placeholder { color: #b9aa97; }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 3px solid #f2b84b;
+  outline-offset: 4px;
+}
+.promo-card, .weekday-card, .secondary-promo, .experience-card, .event-card { min-width: 0; }
+.promo-body .button { white-space: normal; text-align: center; }
+.weekday-card { display: flex; flex-direction: column; align-items: flex-start; }
+.weekday-card p { flex: 1; min-height: 0; }
+.weekday-card strong { margin-top: 1.1rem; }
+.promo-feature-grid { align-items: stretch; }
+.promo-card { display: flex; flex-direction: column; }
+.promo-body { flex: 1; display: flex; flex-direction: column; align-items: flex-start; }
+.promo-body .promo-pills { margin-top: auto; padding-top: .5rem; }
+.promo-body > .button, .promo-body > .promo-text-link { margin-top: 1rem; }
+.menu-tabs { flex-wrap: wrap; }
+.menu-tab { min-height: 38px; }
+@media (min-width: 721px) and (max-width: 1100px) {
+  .nav-links { gap: 14px; margin-right: 16px; }
+  .nav-links > a { font-size: 10px; }
+  .hero-content { margin-left: 6%; width: min(720px, 82%); }
+  .hero-stamp { right: 5%; bottom: 12%; }
+  .section-pad { padding-left: 5%; padding-right: 5%; }
+}
+@media (max-width: 720px) {
+  html { scroll-padding-top: 86px; }
+  .site-header { top: 34px; height: 70px; min-height: 70px; }
+  .hero { height: auto; min-height: max(760px, calc(100svh - 34px)); max-height: none; background-position: 57% center; }
+  .hero-content {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    transform: none;
+    margin: 105px 24px 140px;
+    width: auto;
+    max-width: 560px;
+  }
+  .hero h1 { font-size: clamp(3.2rem, 13vw, 5.4rem); line-height: .9; letter-spacing: -.075em; }
+  .hero-copy { max-width: 340px; font-size: 1rem; }
+  .hero-topline { top: 124px; }
+  .hero-bottomline { bottom: 20px; }
+  .hero-stamp { width: 76px; height: 76px; right: 22px; bottom: 74px; }
+  .promos-heading { margin: 1.7rem 0 2rem; }
+  .promo-feature-grid, .promo-bottom-grid { grid-template-columns: minmax(0,1fr); }
+  .promo-buffet { grid-column: auto; }
+  .promo-image, .promo-buffet .promo-image { height: clamp(205px, 58vw, 285px); }
+  .promo-body { padding: 1.2rem; }
+  .weekday-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .weekday-card { padding: 1rem; }
+  .weekday-card h4 { overflow-wrap: anywhere; }
+  .weekday-card strong small { display: block; margin-top: .4rem; line-height: 1.4; }
+  .amenities-strip { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .section-kicker > span:last-child { text-align: right; }
+  .footer-contact a { overflow-wrap: anywhere; }
+}
+@media (max-width: 380px) {
+  .announcement { gap: 5px; font-size: 6px; letter-spacing: .045em; }
+  .announcement-line { display: none; }
+  .hero-content { margin-inline: 18px; }
+  .hero h1 { font-size: 3.05rem; }
+  .weekday-grid { grid-template-columns: 1fr; }
+  .weekday-card { padding: 1.15rem; }
+  .promo-meta { gap: .5rem; }
+  .footer-top > p { margin-left: 0; width: 100%; }
+  .form-row { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .experience-card img, .promo-image > img, .event-image img { transition: none !important; }
+}
