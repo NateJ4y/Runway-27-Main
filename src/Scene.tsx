@@ -3,6 +3,15 @@ import { Float, Stars } from '@react-three/drei';
 import { useRef } from 'react';
 import * as THREE from 'three';
 
+function CameraMotion() {
+  useFrame(({ camera, pointer, clock }) => {
+    camera.position.x = THREE.MathUtils.damp(camera.position.x, pointer.x * 0.32, 2.2, 1 / 60);
+    camera.position.y = THREE.MathUtils.damp(camera.position.y, 1.5 + pointer.y * 0.18 + Math.sin(clock.elapsedTime * 0.22) * 0.035, 2.2, 1 / 60);
+    camera.lookAt(pointer.x * 0.12, 0, -2.4);
+  });
+  return null;
+}
+
 function Runway() {
   const group = useRef<THREE.Group>(null);
   useFrame(({ pointer, clock }) => {
@@ -33,7 +42,7 @@ function Runway() {
 export default function Scene() {
   return <div className="scene-canvas" aria-hidden="true"><Canvas camera={{ position: [0, 1.5, 8], fov: 46 }} dpr={[1, 1.5]} gl={{ antialias: true, alpha: true }}>
     <color attach="background" args={['#09090d']} /><fog attach="fog" args={['#09090d', 8, 24]} />
-    <ambientLight intensity={0.7} /><directionalLight position={[0, 7, 4]} intensity={1.4} />
+    <CameraMotion /><ambientLight intensity={0.7} /><directionalLight position={[0, 7, 4]} intensity={1.4} />
     <Stars radius={42} depth={24} count={900} factor={2} saturation={0.2} fade speed={0.35} />
     <Runway />
   </Canvas></div>;
