@@ -833,3 +833,41 @@ body { background: var(--paper); }
 .menu-block-note{color:#8a481e;font-weight:600}
 .menu-block-footnote{text-align:center;font-size:11px;line-height:1.7;color:#514943;max-width:540px;margin:52px auto 0}
 @media(max-width:640px){.menu-block{padding:68px 7%}.menu-block-heading{margin-bottom:40px}.menu-block-grid{grid-template-columns:1fr;row-gap:34px}.menu-block-dishname,.menu-block-price{font-size:12px}}
+
+
+/* HEADER/NAV REPAIR — keep navigation above the hero and prevent tablet overflow. */
+.site-header{
+  position:absolute;
+  top:34px;
+  left:0;
+  right:0;
+  z-index:100;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:clamp(12px,2vw,30px);
+  min-width:0;
+}
+.site-header .brand{flex:0 0 auto;position:relative;z-index:2;white-space:nowrap}
+.site-header .nav-links{position:relative;z-index:2;display:flex;align-items:center;justify-content:flex-end;gap:clamp(12px,1.8vw,26px);margin:0 0 0 auto;min-width:0}
+.site-header .nav-links>a{white-space:nowrap;font-size:clamp(10px,.85vw,12px)}
+.site-header .header-book{flex:0 0 auto;white-space:nowrap;position:relative;z-index:2}
+.site-header .menu-toggle{display:none}
+.site-header .mobile-book{display:none}
+@media(max-width:900px){
+  .site-header{height:72px;padding:0 5vw}
+  .site-header .header-book{display:none}
+  .site-header .menu-toggle{display:grid;place-items:center;flex:0 0 44px;width:44px;height:44px;border:1px solid rgba(255,243,223,.45);background:#17130f;color:#fff3df;position:relative;z-index:102}
+  .site-header .nav-links{display:none;position:absolute;top:calc(100% - 1px);left:0;right:0;z-index:101;margin:0;padding:12px 5vw 24px;background:#17130f;border-bottom:2px solid #f2b84b;box-shadow:0 18px 28px rgba(0,0,0,.3);align-items:stretch;gap:0}
+  .site-header .nav-links.nav-open{display:flex;flex-direction:column}
+  .site-header .nav-links>a{display:block;padding:16px 0;border-bottom:1px solid rgba(255,243,223,.15);font-size:13px;line-height:1.4;color:#fff3df}
+  .site-header .nav-links>a:hover{color:#f2b84b}
+  .site-header .nav-links .mobile-book{display:flex;align-items:center;justify-content:space-between;width:100%;margin-top:18px;padding:15px 18px;background:#f2b84b;color:#17130f;border:0}
+}
+@media(max-width:600px){
+  .site-header{top:34px;height:72px;padding:0 5vw}
+  .site-header .brand-name{font-size:clamp(1.35rem,6vw,1.9rem);letter-spacing:-.045em}
+  .site-header .menu-toggle{width:42px;height:42px;flex-basis:42px}
+  .site-header .nav-links{top:100%}
+  .announcement{padding-inline:4vw;white-space:nowrap;overflow:hidden}
+}
