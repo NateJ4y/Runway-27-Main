@@ -327,3 +327,73 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 @media (prefers-reduced-motion: reduce) {
   .experience-card img, .promo-image > img, .event-image img { transition: none !important; }
 }
+
+
+/* Scroll choreography: cinematic hero, editorial reveals and tactile interactions. */
+.hero { background-image: none !important; overflow: clip; }
+.hero-image-layer {
+  position: absolute;
+  inset: -7% -3% -4%;
+  z-index: -3;
+  background-image: url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=2200&q=88');
+  background-size: cover;
+  background-position: center 48%;
+  transform-origin: center center;
+  will-change: transform;
+  pointer-events: none;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background: linear-gradient(90deg,rgba(18,12,8,.82),rgba(18,12,8,.5) 44%,rgba(18,12,8,.08)),
+    linear-gradient(0deg,rgba(18,12,8,.72),transparent 48%,rgba(18,12,8,.3));
+  pointer-events: none;
+}
+.hero:after { content: none !important; }
+.hero-vignette { z-index: -1; }
+.hero-content { will-change: transform, opacity; }
+.intro, .promotions-section, .menu-section, .events-section, .story-section, .reservation-band {
+  position: relative;
+  isolation: isolate;
+}
+.experience-card, .promo-card, .weekday-card, .secondary-promo, .event-card, .menu-photo, .story-image {
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+.experience-card img, .promo-image img, .event-image img, .story-image img {
+  will-change: transform;
+}
+.experience-card, .promo-card, .weekday-card, .secondary-promo, .event-card, .button, .circle-link {
+  transition-timing-function: cubic-bezier(.2,.75,.25,1);
+}
+.experience-card:hover, .event-card:hover { z-index: 2; }
+.experience-card:hover img, .event-card:hover .event-image img { transform: scale(1.055); }
+.promo-card:hover, .secondary-promo:hover { transform: translateY(-6px); }
+.button:active, .header-book:active, .mobile-book:active { transform: scale(.98); }
+.scroll-cue > span { animation: runway-scroll 1.7s ease-in-out infinite; transform-origin: top; }
+@keyframes runway-scroll {
+  0%,100% { transform: scaleY(.55); opacity: .45; }
+  50% { transform: scaleY(1); opacity: 1; }
+}
+.section-kicker { position: relative; }
+.section-kicker:after {
+  content: "";
+  height: 1px;
+  flex: 1;
+  max-width: 90px;
+  background: currentColor;
+  opacity: .25;
+  margin-left: auto;
+}
+@media (max-width: 720px) {
+  .hero-image-layer { background-position: 58% center; inset: -2% -8% -2%; }
+  .hero-content { transform-origin: left center; }
+  .scroll-cue > span { animation-duration: 2.2s; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-image-layer { transform: none !important; }
+  .scroll-cue > span { animation: none !important; }
+  .experience-card img, .promo-image img, .event-image img, .story-image img { will-change: auto; }
+}
