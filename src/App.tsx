@@ -43,7 +43,7 @@ export default function App() {
 
   return <div className="site-shell">
     <ScrollProgress />
-    <div className="announcement"><span className="announcement-dot" /> GOOD FOOD. GOOD PEOPLE. PLANES OVERHEAD. <span className="announcement-line" /> <span>GERMISTON, SOUTH AFRICA</span></div>
+    <div className="announcement"><span className="announcement-dot" /> GOOD TIMES. GOOD FOOD. <span className="announcement-line" /> <span>GERMISTON, SOUTH AFRICA</span></div>
     <header className="site-header">
       <a href="#home" className="brand" onClick={closeNav} aria-label="Runway27 home"><span className="brand-name">RUNWAY<span>27</span></span></a>
       <nav className={menuOpen ? 'nav-links nav-open' : 'nav-links'} aria-label="Main navigation">
@@ -62,7 +62,7 @@ export default function App() {
         <div className="hero-topline"><span>26° 12' S — 28° 02' E</span><span className="topline-center"><i/> A PLACE TO ARRIVE</span><span>EST. MMXXVII</span></div>
         <motion.div className="hero-content" style={{ y: heroContentY, opacity: heroContentOpacity }} initial="hidden" animate="visible" variants={{ visible: { transition: { staggerChildren: 0.12 } } }}>
           <motion.p className="eyebrow" variants={fadeUp}><span className="eyebrow-rule"/> YOUR TABLE WITH A VIEW</motion.p>
-          <motion.h1 variants={fadeUp}>Good times.<br/><em>Great altitude.</em></motion.h1>
+          <motion.h1 variants={fadeUp}>Good times.<br/><em>Good food.</em></motion.h1>
           <motion.p className="hero-copy" variants={fadeUp}>Good food, family-friendly fun and front-row views of the runway. Your next favourite spot is in Germiston.</motion.p>
           <motion.div className="hero-actions" variants={fadeUp}><a className="button button-gold" href="https://wa.me/27665760223" target="_blank" rel="noreferrer">Come through <ArrowUpRight size={17}/></a><a className="text-link" href="#experience">Explore Runway27 <ArrowDownRight size={16}/></a></motion.div>
         </motion.div>
