@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import type { FormEvent } from 'react';
 import { AnimatePresence, motion, useReducedMotion, useScroll, useSpring, useTransform } from 'framer-motion';
-import { ArrowDownRight, ArrowRight, ArrowUpRight, CalendarDays, Check, Clock3, Instagram, MapPin, Menu as MenuIcon, Sparkles, UtensilsCrossed, X } from 'lucide-react';
+import { ArrowDownRight, ArrowRight, ArrowUpRight, CalendarDays, Check, Clock3, Instagram, MapPin, Menu as MenuIcon, Sparkles, UtensilsCrossed, X, Phone, Plane, Users, Bike, Ticket } from 'lucide-react';
 import Scene from './Scene';
 import { events, menuItems } from './data';
 
@@ -37,7 +37,7 @@ export default function App() {
     <header className="site-header">
       <a href="#home" className="brand" onClick={closeNav} aria-label="Runway27 home"><span className="brand-name">RUNWAY<span>27</span></span></a>
       <nav className={menuOpen ? 'nav-links nav-open' : 'nav-links'} aria-label="Main navigation">
-        <a href="#experience" onClick={closeNav}>The experience</a><a href="#menu" onClick={closeNav}>Menu</a><a href="#events" onClick={closeNav}>What’s on</a><a href="#story" onClick={closeNav}>Our story</a>
+        <a href="#experience" onClick={closeNav}>The experience</a><a href="#specials" onClick={closeNav}>Specials</a><a href="#menu" onClick={closeNav}>Menu</a><a href="#events" onClick={closeNav}>What’s on</a><a href="#contact" onClick={closeNav}>Find us</a>
         <button className="mobile-book" onClick={openBooking}>Book a table <ArrowUpRight size={15}/></button>
       </nav>
       <button className="header-book" onClick={openBooking}>Book a table <ArrowUpRight size={15}/></button>
@@ -52,7 +52,7 @@ export default function App() {
         <motion.div className="hero-content" initial="hidden" animate="visible" variants={{ visible: { transition: { staggerChildren: 0.12 } } }}>
           <motion.p className="eyebrow" variants={fadeUp}><span className="eyebrow-rule"/> MORE THAN A NIGHT OUT</motion.p>
           <motion.h1 variants={fadeUp}>Take the night<br/><em>somewhere.</em></motion.h1>
-          <motion.p className="hero-copy" variants={fadeUp}>A table worth gathering around. A lounge that comes alive. A night that becomes a story.</motion.p>
+          <motion.p className="hero-copy" variants={fadeUp}>Good food, family-friendly fun and front-row views of the runway. Your next favourite spot is in Germiston.</motion.p>
           <motion.div className="hero-actions" variants={fadeUp}><button className="button button-gold" onClick={openBooking}>Reserve your moment <ArrowUpRight size={17}/></button><a className="text-link" href="#experience">Explore Runway27 <ArrowDownRight size={16}/></a></motion.div>
         </motion.div>
         <div className="hero-bottomline"><span>DINING / LOUNGE / EVENTS</span><span className="scroll-cue"><span/> SCROLL TO DISCOVER</span><span>YOUR NIGHT, REDEFINED</span></div>
@@ -79,6 +79,35 @@ export default function App() {
             <div className="card-shade"/><span className="card-number">03 — COME ALIVE</span><div className="experience-card-bottom"><div><h3>Events</h3><p>Make the night a little legendary.</p></div><a href="#events" aria-label="See upcoming events"><ArrowUpRight/></a></div>
           </motion.article>
         </div>
+      </section>
+
+
+      <section className="promotions-section section-pad" id="specials">
+        <div className="section-kicker"><span>02 / WHAT'S ON AT RUNWAY27</span><span>GOOD DEALS. GREAT DAYS.</span></div>
+        <div className="promos-heading"><div><h2>Make room<br/><em>for a special.</em></h2></div><p>From generous Sunday lunches to weekday favourites, there’s always something worth coming in for.</p></div>
+        <div className="promo-feature-grid">
+          <motion.article className="promo-card promo-buffet" initial="hidden" whileInView="visible" viewport={{once:true,amount:.15}} variants={fadeUp}>
+            <div className="promo-image"><img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1400&q=85" alt="A generous spread of lunch dishes" loading="lazy"/><span className="promo-tag">FEATURED EVENT</span><span className="promo-price">R149 <small>/ adult</small></span></div>
+            <div className="promo-body"><div className="promo-meta"><span><CalendarDays size={14}/> SUN · 01 NOV 2026</span><span><Clock3 size={14}/> 12:00–17:00</span></div><h3>Biggest Sunday Lunch Buffet</h3><p className="promo-subtitle">Eat as much as you can.</p><p>Bring the whole family for a generous Sunday spread, kids’ play area and views of aircraft taking off while you dine.</p><div className="promo-pills"><span>Kids under 10: R99</span><span>2 hours per seating</span><span>Runway views</span></div><a className="button button-gold" href="https://wa.me/27665760223?text=Hi%20Runway27%2C%20I%27d%20like%20to%20enquire%20about%20the%20Sunday%20Lunch%20Buffet%20on%201%20November%202026." target="_blank" rel="noreferrer">Enquire on WhatsApp <ArrowUpRight size={16}/></a></div>
+          </motion.article>
+          <motion.article className="promo-card promo-kids" initial="hidden" whileInView="visible" viewport={{once:true,amount:.15}} variants={fadeUp}>
+            <div className="promo-image"><img src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=1000&q=85" alt="Children playing outdoors" loading="lazy"/><span className="promo-tag">EVERY SATURDAY</span><span className="promo-sticker">KIDS<br/>EAT FREE</span></div>
+            <div className="promo-body"><div className="promo-meta"><span><Users size={14}/> FAMILY SPECIAL</span></div><h3>Saturday Kids Eat for Free</h3><p>For every R250 spent, one child under 10 eats free from the kids’ menu. Bring the family, enjoy the aircraft view and let the little ones play.</p><div className="promo-pills"><span>Kids under 10</span><span>Kids menu only</span><span>Pool tables</span></div><a className="promo-text-link" href="https://wa.me/27665760223" target="_blank" rel="noreferrer">Ask us about the offer <ArrowRight size={15}/></a></div>
+          </motion.article>
+        </div>
+        <div className="weekday-block"><div className="weekday-heading"><div><span className="eyebrow">MONDAY — THURSDAY</span><h3>Weekday specials</h3></div><span className="sit-down-note">SIT-DOWN ONLY</span></div>
+          <div className="weekday-grid">
+            <motion.article className="weekday-card" whileHover={{y:-5}}><span className="weekday-day">MONDAY <i>01</i></span><h4>Steak & draught</h4><p>500g T-bone steak with a 300ml draught beer.</p><strong>R199 <small>ONLY</small></strong></motion.article>
+            <motion.article className="weekday-card" whileHover={{y:-5}}><span className="weekday-day">TUESDAY <i>02</i></span><h4>Pizza, pasta & steak</h4><p>50% off all pizza and pasta, plus 300g Portuguese steak.</p><strong>50% <small>OFF PIZZA & PASTA</small></strong></motion.article>
+            <motion.article className="weekday-card" whileHover={{y:-5}}><span className="weekday-day">WEDNESDAY <i>03</i></span><h4>Sushi & steakhouse</h4><p>50% off all sushi, plus 350g ribeye, pork chops and 300g bitoque steak.</p><strong>50% <small>OFF SUSHI</small></strong></motion.article>
+            <motion.article className="weekday-card" whileHover={{y:-5}}><span className="weekday-day">THURSDAY <i>04</i></span><h4>Burgers & T-bone</h4><p>50% off all burgers, plus a 500g T-bone steak.</p><strong>50% <small>OFF BURGERS</small></strong></motion.article>
+          </div><p className="promo-terms">Weekday specials are sit-down only. Ask the team about availability and terms.</p>
+        </div>
+        <div className="promo-bottom-grid">
+          <motion.article className="secondary-promo biker-promo" whileInView={{opacity:1,y:0}} initial={{opacity:0,y:20}} viewport={{once:true}}><div className="secondary-icon"><Bike size={24}/></div><span className="promo-tag">BIKERS WELCOME</span><h3>Brothers by the road,<br/><em>family by the heart.</em></h3><p>All bikers welcome. Wear your cut or bring your helmet and get <strong>10% off</strong>. Great food, cold drinks, good company and aircraft taking off while you dine.</p><small>*Discount excludes specials.</small><a className="promo-text-link" href="https://wa.me/27665760223" target="_blank" rel="noreferrer">Plan your stop <ArrowRight size={15}/></a></motion.article>
+          <motion.article className="secondary-promo venue-promo" whileInView={{opacity:1,y:0}} initial={{opacity:0,y:20}} viewport={{once:true}}><div className="secondary-icon"><Ticket size={24}/></div><span className="promo-tag">VENUE HIRE</span><h3>Your celebration.<br/><em>Our runway-side setting.</em></h3><p>Year-end functions, weddings, birthdays and all celebrations. Enjoy <strong>free venue hire</strong> with a <strong>free DJ on request</strong>.</p><a className="promo-text-link" href="https://wa.me/27665760223?text=Hi%20Runway27%2C%20I%27d%20like%20to%20enquire%20about%20free%20venue%20hire." target="_blank" rel="noreferrer">Enquire about venue hire <ArrowRight size={15}/></a></motion.article>
+        </div>
+        <div className="amenities-strip"><span><Users size={17}/> Family friendly</span><span><Sparkles size={17}/> Kids play area</span><span><Plane size={18}/> Aircraft & runway views</span><span><span className="pool-icon">8</span> Pool tables</span></div>
       </section>
 
       <section className="menu-section section-pad" id="menu">
@@ -116,9 +145,9 @@ export default function App() {
     </main>
 
     <footer className="site-footer">
-      <div className="footer-top"><a href="#home" className="brand footer-brand"><span className="brand-name">RUNWAY<span>27</span></span></a><p>Good food. Great energy.<br/>A night worth remembering.</p><a href="#home" className="back-top">BACK TO TOP <ArrowUpRight size={14}/></a></div>
-      <div className="footer-bottom"><span>© 2026 RUNWAY27 · CONCEPT WEBSITE</span><div><a href="#experience">EXPERIENCE</a><a href="#menu">MENU</a><a href="#events">EVENTS</a></div><div className="footer-social"><a href="#contact" aria-label="Instagram"><Instagram size={16}/></a><a href="mailto:hello@runway27.example" aria-label="Email Runway27"><ArrowUpRight size={16}/></a></div></div>
-      <div id="contact" className="footer-contact"><span><MapPin size={13}/> Address to be confirmed</span><span><Clock3 size={13}/> Hours to be confirmed</span><span><UtensilsCrossed size={13}/> Dining · Lounge · Events</span></div>
+      <div className="footer-top"><a href="#home" className="brand footer-brand"><span className="brand-name">RUNWAY<span>27</span></span></a><p>Runway 27 Kitchen &amp; Bar.<br/>Good food, family fun and runway views.</p><a href="#home" className="back-top">BACK TO TOP <ArrowUpRight size={14}/></a></div>
+      <div className="footer-bottom"><span>© 2026 RUNWAY 27 KITCHEN &amp; BAR</span><div><a href="#experience">EXPERIENCE</a><a href="#menu">MENU</a><a href="#events">EVENTS</a></div><div className="footer-social"><a href="#contact" aria-label="Instagram"><Instagram size={16}/></a><a href="mailto:hello@runway27.example" aria-label="Email Runway27"><ArrowUpRight size={16}/></a></div></div>
+      <div id="contact" className="footer-contact"><a href="https://www.google.com/maps/search/?api=1&query=Transvaal+Aviation+Building%2C+Dakota+Crescent%2C+Germiston" target="_blank" rel="noreferrer"><MapPin size={14}/> Transvaal Aviation Building, Dakota Crescent, Germiston <ArrowUpRight size={13}/></a><a href="tel:+27665760223"><Phone size={14}/> 066 576 0223</a><a href="https://wa.me/27665760223" target="_blank" rel="noreferrer"><Phone size={14}/> WhatsApp Runway27 <ArrowUpRight size={13}/></a><span><UtensilsCrossed size={13}/> Dining · Family fun · Events</span></div>
     </footer>
 
     <AnimatePresence>{bookingOpen && <motion.div className="modal-backdrop" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onMouseDown={(e) => { if (e.target === e.currentTarget) setBookingOpen(false); }}><motion.div className="booking-modal" initial={{ opacity: 0, y: 24, scale: .98 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 12, scale: .98 }} transition={{ duration: .25 }} role="dialog" aria-modal="true" aria-labelledby="booking-title"><button className="modal-close" onClick={() => setBookingOpen(false)} aria-label="Close reservation form"><X/></button>{bookingSent ? <div className="booking-success"><div className="success-icon"><Check size={25}/></div><span className="eyebrow">REQUEST PREVIEW</span><h2>Looking good.</h2><p>Your form passed the demo checks. No reservation has been created or sent to Runway27 yet.</p><button className="button button-gold" onClick={() => setBookingOpen(false)}>Back to the experience <ArrowRight size={16}/></button></div> : <><span className="eyebrow"><CalendarDays size={14}/> RESERVATIONS</span><h2 id="booking-title">Save your <em>seat.</em></h2><p className="modal-intro">Tell us a little about your evening.</p><form className="booking-form" onSubmit={submitBooking}><label>Full name<input required autoComplete="name" value={form.name} onChange={e => setForm({...form, name:e.target.value})} placeholder="Your name"/></label><label>Email address<input required type="email" autoComplete="email" value={form.email} onChange={e => setForm({...form, email:e.target.value})} placeholder="you@example.com"/></label><div className="form-row"><label>Date<input required type="date" min={new Date().toISOString().slice(0,10)} value={form.date} onChange={e => setForm({...form, date:e.target.value})}/></label><label>Time<select value={form.time} onChange={e => setForm({...form, time:e.target.value})}>{['17:00','17:30','18:00','18:30','19:00','19:30','20:00','20:30','21:00'].map(t=><option key={t}>{t}</option>)}</select></label></div><label>Guests<select value={form.guests} onChange={e => setForm({...form, guests:e.target.value})}>{['1','2','3','4','5','6','7','8'].map(n=><option key={n} value={n}>{n} {n === '1' ? 'guest' : 'guests'}</option>)}</select></label><label>Anything we should know? <span className="optional">(optional)</span><textarea rows={2} value={form.notes} onChange={e => setForm({...form, notes:e.target.value})} placeholder="Celebration, dietary needs, seating request…"/></label><button className="button button-gold booking-submit" type="submit">Preview reservation request <ArrowUpRight size={16}/></button><p className="form-note">Demo only · No data is sent or stored.</p></form></>}</motion.div></motion.div>}</AnimatePresence>
