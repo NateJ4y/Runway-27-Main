@@ -923,3 +923,25 @@ body{background:#050505;color:#fff5d9}
  .nav-links{background:#070707;border-bottom-color:rgba(246,189,40,.55)}
  .menu-toggle{border-color:rgba(246,189,40,.35)}
 }
+
+
+/* CONTRAST FIX: quote band must stay light-on-dark, including the emphasized line. */
+.quote-band{
+  background:radial-gradient(ellipse at center,rgba(246,189,40,.10),transparent 60%),#050505 !important;
+  color:#fff5d9 !important;
+}
+.quote-band > p,
+.quote-band > p em{
+  color:#fff5d9 !important;
+  text-shadow:none !important;
+}
+.quote-band > p em{
+  color:#ffd45c !important;
+}
+.quote-band .quote-caption{
+  color:#d8cdb5 !important;
+}
+.quote-band .quote-orb{
+  color:#ffd45c !important;
+  border-color:#ffd45c !important;
+}
