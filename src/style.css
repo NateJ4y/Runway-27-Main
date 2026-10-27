@@ -812,3 +812,24 @@ body { background: var(--paper); }
   .experience-card .experience-card-bottom h3 { color: #fffdf6 !important; }
   .events-section .events-heading h2 { color: #17130f !important; }
 }
+
+
+/* Reusable menu block — styled to match Runway27's dark editorial art direction. */
+.menu-block{width:100%;background:#f4f0eb;color:#17120d;padding:clamp(64px,9vw,120px) 7.1%}
+.menu-block-inner{width:100%;max-width:1160px;margin:0 auto}
+.menu-block-heading{text-align:center;max-width:640px;margin:0 auto 54px}
+.menu-block-kicker{font-size:9px;font-weight:700;letter-spacing:.19em;color:#795522;margin-bottom:18px}
+.menu-block-heading h2{font-family:'Playfair Display',serif;font-size:clamp(48px,6vw,76px);line-height:.98;letter-spacing:-.055em;font-weight:400;margin:0}
+.menu-block-heading h2 em{color:#a45a21;font-weight:400}
+.menu-block-intro{max-width:470px;margin:20px auto 0;color:#514943;font-size:13px;line-height:1.8}
+.menu-block-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(28px,6vw,80px);row-gap:44px}
+.menu-block-course h3{font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:800;border-bottom:1px solid rgba(23,18,13,.2);padding-bottom:13px;margin:0 0 20px;color:#8a481e}
+.menu-block-course ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:20px}
+.menu-block-dishline{display:flex;align-items:baseline;gap:9px}
+.menu-block-dishname,.menu-block-price{font-size:13px;font-weight:700;color:#17120d}
+.menu-block-dots{min-width:12px;flex:1;transform:translateY(-3px);border-bottom:1px dotted rgba(23,18,13,.35)}
+.menu-block-price{font-variant-numeric:tabular-nums}
+.menu-block-course li p{font-size:11px;line-height:1.65;color:#514943;margin:6px 0 0}
+.menu-block-note{color:#8a481e;font-weight:600}
+.menu-block-footnote{text-align:center;font-size:11px;line-height:1.7;color:#514943;max-width:540px;margin:52px auto 0}
+@media(max-width:640px){.menu-block{padding:68px 7%}.menu-block-heading{margin-bottom:40px}.menu-block-grid{grid-template-columns:1fr;row-gap:34px}.menu-block-dishname,.menu-block-price{font-size:12px}}
