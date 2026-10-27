@@ -11,7 +11,7 @@ export const menuItems: MenuItem[] = [
   { name: 'Zero-proof sunset', description: 'Blood orange, rosemary, tonic', price: 'R75', category: 'Drinks' },
 ];
 export const events = [
-  { date: 'FRI · 31 OCT', title: 'Afterglow Sessions', type: 'LIVE MUSIC', image: 'https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=1200&q=85', description: 'A late-night soundtrack, signature cocktails, and a room made for staying a little longer.' },
-  { date: 'SAT · 08 NOV', title: 'The Velvet Table', type: 'DINING EXPERIENCE', image: 'https://images.unsplash.com/photo-1515003197210-e0cd7184f8b5?auto=format&fit=crop&w=1200&q=85', description: 'A curated multi-course evening celebrating bold flavours and beautiful company.' },
+  { date: 'FRI · 31 OCT', title: 'Afterglow Sessions', type: 'LIVE MUSIC', image: 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=1200&q=85', description: 'A late-night soundtrack, signature cocktails, and a room made for staying a little longer.' },
+  { date: 'SAT · 08 NOV', title: 'The Velvet Table', type: 'DINING EXPERIENCE', image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1200&q=85', description: 'A curated multi-course evening celebrating bold flavours and beautiful company.' },
   { date: 'SAT · 15 NOV', title: 'Rhythm & Rooftops', type: 'LOUNGE NIGHT', image: 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=1200&q=85', description: 'Resident selectors, atmospheric lighting, and a dance floor that finds its own rhythm.' },
 ];
