@@ -1,12 +1,25 @@
 import { useMemo, useState } from 'react';
 import type { FormEvent } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion, useReducedMotion, useScroll, useSpring, useTransform } from 'framer-motion';
 import { ArrowDownRight, ArrowRight, ArrowUpRight, CalendarDays, Check, Clock3, Instagram, MapPin, Menu as MenuIcon, Sparkles, UtensilsCrossed, X } from 'lucide-react';
 import Scene from './Scene';
 import { events, menuItems } from './data';
 
 const fadeUp = { hidden: { opacity: 0, y: 26 }, visible: { opacity: 1, y: 0, transition: { duration: 0.75, ease: 'easeOut' } } };
 const categories = ['All', 'Plates', 'Small bites', 'Drinks'] as const;
+
+function ScrollProgress() {
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, { stiffness: 110, damping: 28, mass: 0.25 });
+  return <motion.div className="scroll-progress" style={{ scaleX }} aria-hidden="true" />;
+}
+
+function ParallaxImage({ src, alt, className = '' }: { src: string; alt: string; className?: string }) {
+  const reduceMotion = useReducedMotion();
+  const { scrollYProgress } = useScroll();
+  const y = useTransform(scrollYProgress, [0, 1], [reduceMotion ? 0 : -28, reduceMotion ? 0 : 28]);
+  return <div className={`parallax-frame ${className}`}><motion.img src={src} alt={alt} loading="lazy" style={{ y: reduceMotion ? 0 : y }} /></div>;
+}
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -19,7 +32,7 @@ export default function App() {
   const openBooking = () => { setBookingSent(false); setBookingOpen(true); closeNav(); };
   const submitBooking = (e: FormEvent<HTMLFormElement>) => { e.preventDefault(); setBookingSent(true); };
 
-  return <div className="site-shell">
+  return <div className="site-shell">\n    <ScrollProgress />
     <div className="announcement"><span className="announcement-dot" /> THE CITY AFTER DARK, REIMAGINED <span className="announcement-line" /> <span>DINING · LOUNGE · EXPERIENCES</span></div>
     <header className="site-header">
       <a href="#home" className="brand" onClick={closeNav} aria-label="Runway27 home"><span className="brand-name">RUNWAY<span>27</span></span></a>
@@ -69,7 +82,7 @@ export default function App() {
       </section>
 
       <section className="menu-section section-pad" id="menu">
-        <div className="menu-photo"><img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1200&q=85" alt="Freshly prepared seasonal dish" loading="lazy"/><div className="photo-caption"><span>FRESH THINKING.</span><span>FEARLESS FLAVOUR.</span></div></div>
+        <div className="menu-photo"><ParallaxImage src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1200&q=85" alt="Freshly prepared seasonal dish"/><div className="photo-caption"><span>FRESH THINKING.</span><span>FEARLESS FLAVOUR.</span></div></div>
         <div className="menu-content">
           <div className="section-kicker"><span>02 / FROM OUR KITCHEN</span><span>THE MENU</span></div>
           <h2>A little unexpected.<br/><em>Always memorable.</em></h2>
@@ -91,7 +104,7 @@ export default function App() {
       </section>
 
       <section className="story-section" id="story">
-        <div className="story-image"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1400&q=85" alt="Atmospheric restaurant interior" loading="lazy"/><div className="story-image-label">THE ART OF A GOOD NIGHT</div></div>
+        <div className="story-image"><ParallaxImage src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1400&q=85" alt="Atmospheric restaurant interior"/><div className="story-image-label">THE ART OF A GOOD NIGHT</div></div>
         <div className="story-copy"><div className="section-kicker"><span>04 / THE RUNWAY WAY</span></div><h2>Every detail has<br/>a <em>feeling.</em></h2><p>We believe a great venue is more than a room. It’s the welcome at the door, the first sip, the playlist you Shazam and the conversation that runs past closing time.</p><p>Runway27 brings those little things together, so the ordinary evening gets a chance to become something else.</p><div className="story-signoff"><span className="signoff-line"/><span>THE RUNWAY27 PROMISE</span></div></div>
       </section>
 
@@ -103,7 +116,7 @@ export default function App() {
     </main>
 
     <footer className="site-footer">
-      <div className="footer-top"><a href="#home" className="brand footer-brand"><img className="brand-logo" src="/runway27-logo.svg" alt="Runway27 Kitchen & Bar" /></a><p>Good food. Great energy.<br/>A night worth remembering.</p><a href="#home" className="back-top">BACK TO TOP <ArrowUpRight size={14}/></a></div>
+      <div className="footer-top"><a href="#home" className="brand footer-brand"><span className="brand-name">RUNWAY<span>27</span></span></a><p>Good food. Great energy.<br/>A night worth remembering.</p><a href="#home" className="back-top">BACK TO TOP <ArrowUpRight size={14}/></a></div>
       <div className="footer-bottom"><span>© 2026 RUNWAY27 · CONCEPT WEBSITE</span><div><a href="#experience">EXPERIENCE</a><a href="#menu">MENU</a><a href="#events">EVENTS</a></div><div className="footer-social"><a href="#contact" aria-label="Instagram"><Instagram size={16}/></a><a href="mailto:hello@runway27.example" aria-label="Email Runway27"><ArrowUpRight size={16}/></a></div></div>
       <div id="contact" className="footer-contact"><span><MapPin size={13}/> Address to be confirmed</span><span><Clock3 size={13}/> Hours to be confirmed</span><span><UtensilsCrossed size={13}/> Dining · Lounge · Events</span></div>
     </footer>
