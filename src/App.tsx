@@ -6,6 +6,7 @@ import Scene from './Scene';
 import { events, menuItems } from './data';
 
 const fadeUp = { hidden: { opacity: 0, y: 26 }, visible: { opacity: 1, y: 0, transition: { duration: 0.75, ease: 'easeOut' } } };
+const sectionMotion = { hidden: { opacity: 0, y: 54, scale: 0.985 }, visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.72, ease: 'easeOut' } } };
 const categories = ['All', 'Plates', 'Small bites', 'Drinks'] as const;
 
 function ScrollProgress() {
@@ -66,9 +67,9 @@ export default function App() {
         </motion.div>
         <div className="hero-bottomline"><span>DINING / LOUNGE / EVENTS</span><span className="scroll-cue"><span/> SCROLL TO DISCOVER</span><span>YOUR NIGHT, REDEFINED</span></div>
         <div className="hero-stamp"><Sparkles size={14}/><span>MADE FOR<br/>THE MOMENT</span></div>
-      </section>
+      </motion.section>
 
-      <section className="intro section-pad" id="experience">
+      <motion.section className="intro section-pad" id="experience" initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.06 }} variants={sectionMotion}>
         <motion.div className="section-kicker" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}><span>01 / THE EXPERIENCE</span><span>YOUR NEW FAVOURITE PLACE</span></motion.div>
         <div className="intro-grid">
           <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>Big plates.<br/><em>Big little moments.</em></motion.h2>
@@ -88,10 +89,10 @@ export default function App() {
             <div className="card-shade"/><span className="card-number">03 — COME ALIVE</span><div className="experience-card-bottom"><div><h3>Events</h3><p>Make the night a little legendary.</p></div><a href="#events" aria-label="See upcoming events"><ArrowUpRight/></a></div>
           </motion.article>
         </div>
-      </section>
+      </motion.section>
 
 
-      <section className="promotions-section section-pad" id="specials">
+      <motion.section className="promotions-section section-pad" id="specials" initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.06 }} variants={sectionMotion}>
         <div className="section-kicker"><span>02 / WHAT'S ON AT RUNWAY27</span><span>GOOD DEALS. GREAT DAYS.</span></div>
         <div className="promos-heading"><div><h2>Make room<br/><em>for a special.</em></h2></div><p>From generous Sunday lunches to weekday favourites, there’s always something worth coming in for.</p></div>
         <div className="promo-feature-grid">
@@ -117,9 +118,9 @@ export default function App() {
           <motion.article className="secondary-promo venue-promo" whileInView={{opacity:1,y:0}} initial={{opacity:0,y:20}} viewport={{once:true}}><div className="secondary-icon"><Ticket size={24}/></div><span className="promo-tag">VENUE HIRE</span><h3>Your celebration.<br/><em>Our runway-side setting.</em></h3><p>Year-end functions, weddings, birthdays and all celebrations. Enjoy <strong>free venue hire</strong> with a <strong>free DJ on request</strong>.</p><a className="promo-text-link" href="https://wa.me/27665760223?text=Hi%20Runway27%2C%20I%27d%20like%20to%20enquire%20about%20free%20venue%20hire." target="_blank" rel="noreferrer">Enquire about venue hire <ArrowRight size={15}/></a></motion.article>
         </div>
         <div className="amenities-strip"><span><Users size={17}/> Family friendly</span><span><Sparkles size={17}/> Kids play area</span><span><Plane size={18}/> Aircraft & runway views</span><span><span className="pool-icon">8</span> Pool tables</span></div>
-      </section>
+      </motion.section>
 
-      <section className="menu-section section-pad" id="menu">
+      <motion.section className="menu-section section-pad" id="menu" initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.06 }} variants={sectionMotion}>
         <div className="menu-photo"><ParallaxImage src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1200&q=85" alt="Freshly prepared seasonal dish"/><div className="photo-caption"><span>FRESH THINKING.</span><span>FEARLESS FLAVOUR.</span></div></div>
         <div className="menu-content">
           <div className="section-kicker"><span>03 / FROM OUR KITCHEN</span><span>THE MENU</span></div>
@@ -130,27 +131,27 @@ export default function App() {
           <p className="menu-disclaimer">Sample menu for design preview. Final menu and prices to be confirmed.</p>
           <button className="button button-outline" onClick={openBooking}>Join us at the table <ArrowUpRight size={16}/></button>
         </div>
-      </section>
+      </motion.section>
 
-      <section className="quote-band"><div className="quote-orb">R<span>27</span></div><p>“The best nights don’t need a reason.<br/><em>Just the right place.”</em></p><span className="quote-caption">YOUR TABLE IS WAITING</span></section>
+      <motion.section className="quote-band" initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.06 }} variants={sectionMotion}><div className="quote-orb">R<span>27</span></div><p>“The best nights don’t need a reason.<br/><em>Just the right place.”</em></p><span className="quote-caption">YOUR TABLE IS WAITING</span></motion.section>
 
-      <section className="events-section section-pad" id="events">
+      <motion.section className="events-section section-pad" id="events" initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.06 }} variants={sectionMotion}>
         <div className="section-kicker"><span>04 / ON THE CALENDAR</span><span>GOOD THINGS ARE HAPPENING</span></div>
         <div className="events-heading"><h2>Make a night<br/><em>of it.</em></h2><p>From intimate dinners to high-energy nights, there’s always another reason to come through.</p></div>
         <div className="events-grid">{events.map((event, i) => <motion.article className="event-card" key={event.title} initial="hidden" whileInView="visible" viewport={{ once: true, amount: .15 }} variants={{ hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0, transition: { duration: .6, delay: i * .12 } } }}><div className="event-image"><img src={event.image} alt="" loading="lazy"/><span className="event-date">{event.date}</span><span className="event-arrow"><ArrowUpRight/></span></div><div className="event-meta">{event.type}</div><h3>{event.title}</h3><p>{event.description}</p><button className="event-link" onClick={openBooking}>Enquire about this event <ArrowRight size={15}/></button></motion.article>)}</div>
         <p className="menu-disclaimer">Event names and dates are illustrative placeholders, not confirmed listings.</p>
-      </section>
+      </motion.section>
 
-      <section className="story-section" id="story">
+      <motion.section className="story-section" id="story" initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.06 }} variants={sectionMotion}>
         <div className="story-image"><ParallaxImage src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1400&q=85" alt="Atmospheric restaurant interior"/><div className="story-image-label">THE ART OF A GOOD NIGHT</div></div>
         <div className="story-copy"><div className="section-kicker"><span>05 / THE RUNWAY WAY</span></div><h2>Every detail has<br/>a <em>feeling.</em></h2><p>We believe a great venue is more than a room. It’s the welcome at the door, the first sip, the playlist you Shazam and the conversation that runs past closing time.</p><p>Runway27 brings those little things together, so the ordinary evening gets a chance to become something else.</p><div className="story-signoff"><span className="signoff-line"/><span>THE RUNWAY27 PROMISE</span></div></div>
-      </section>
+      </motion.section>
 
-      <section className="reservation-band">
+      <motion.section className="reservation-band" initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.06 }} variants={sectionMotion}>
         <div className="reservation-glow"/><div className="section-kicker"><span>06 / YOUR EVENING STARTS HERE</span><span>MAKE IT YOURS</span></div>
         <h2>We’ll save<br/><em>you a place.</em></h2><p>Date night, catch-up, celebration or just because. We’ll see you there.</p><button className="button button-gold" onClick={openBooking}>Reserve a table <ArrowUpRight size={17}/></button>
         <span className="reservation-footnote">RESERVATIONS ARE FREE · GOOD COMPANY IS ESSENTIAL</span>
-      </section>
+      </motion.section>
     </main>
 
     <footer className="site-footer">
