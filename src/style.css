@@ -716,3 +716,99 @@ body { background: var(--paper); }
   .experience-card:hover, .experience-card:nth-child(2):hover, .experience-card:nth-child(3):hover,
   .promo-card:hover, .secondary-promo:hover, .weekday-card:hover { transform: none; }
 }
+
+
+/* ACCESSIBILITY PASS — explicit foregrounds and dependable image fallbacks */
+.experience-card { color: #fffdf6; isolation: isolate; background: #17130f; }
+.experience-card .card-shade {
+  z-index: 0;
+  background: linear-gradient(180deg,rgba(10,8,6,.28) 0%,rgba(10,8,6,.08) 30%,rgba(10,8,6,.88) 100%) !important;
+}
+.experience-card .card-number,
+.experience-card .experience-card-bottom { z-index: 1; }
+.experience-card .card-number { color: #fffdf6 !important; text-shadow: 0 2px 8px rgba(0,0,0,.95); }
+.experience-card .experience-card-bottom h3,
+.experience-card .experience-card-bottom p { color: #fffdf6 !important; text-shadow: 0 2px 10px rgba(0,0,0,.8); }
+.experience-card .experience-card-bottom p { font-weight: 650; }
+.experience-card .experience-card-bottom > a { flex: 0 0 auto; }
+
+/* Calendar lives on warm paper: ink for copy, orange only for accents. */
+.events-section { background: #f6eedf !important; color: #17130f !important; }
+.events-section .section-kicker,
+.events-section .events-heading,
+.events-section .events-heading h2,
+.events-section .events-heading p,
+.events-section .event-card,
+.events-section .event-card h3,
+.events-section .event-card p,
+.events-section .event-link,
+.events-section .menu-disclaimer { color: #17130f !important; }
+.events-section .events-heading h2 em,
+.events-section .event-meta { color: #b83212 !important; }
+.events-section .event-card p { opacity: 1 !important; }
+.events-section .event-link { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }
+.events-section .event-link:hover { color: #b83212 !important; }
+.events-section .event-image { background: #27211b; overflow: hidden; }
+.events-section .event-image img { display: block; width: 100%; height: 100%; min-height: 250px; object-fit: cover; }
+.events-section .event-date { color: #17130f !important; background: #ffd447 !important; }
+.events-section .event-arrow { color: #fff !important; background: #b83212 !important; }
+
+/* Keep the named event cards readable if image tones vary. */
+.event-card h3 { color: #17130f !important; }
+.event-card p { color: #29231d !important; }
+.event-card .event-meta { color: #a62c10 !important; }
+.event-card .event-link { color: #17130f !important; }
+
+/* Campaign banners: near-white copy on orange; dark ink on yellow. */
+.promotions-section { color: #fffdf6 !important; }
+.promotions-section .section-kicker,
+.promotions-section .promos-heading > p,
+.promotions-section .weekday-heading .eyebrow,
+.promotions-section .promo-terms { color: #fffdf6 !important; }
+.promotions-section .promos-heading h2 { color: #fffdf6 !important; }
+.promotions-section .promos-heading h2 em { color: #17130f !important; }
+.promotions-section .sit-down-note { color: #fffdf6 !important; border-color: #fffdf6 !important; }
+.promotions-section .amenities-strip,
+.promotions-section .amenities-strip > span { color: #fffdf6 !important; }
+.promotions-section .amenities-strip svg { color: #ffd447 !important; }
+.promo-card, .secondary-promo, .weekday-card { color: #17130f !important; }
+.promo-card h3, .promo-card p, .promo-card .promo-meta,
+.secondary-promo h3, .secondary-promo p, .secondary-promo small,
+.weekday-card h4, .weekday-card p, .weekday-card .weekday-day { color: #17130f !important; }
+.promo-card .promo-subtitle, .secondary-promo h3 em { color: #a62c10 !important; }
+.promo-card .promo-tag, .secondary-promo .promo-tag { background: #17130f !important; color: #fffdf6 !important; }
+.promo-card .promo-price, .promo-card .promo-sticker { background: #ffd447 !important; color: #17130f !important; }
+.promo-pills span { color: #17130f !important; border-color: #5b5146 !important; }
+.promo-text-link { color: #8e240d !important; }
+.weekday-card strong { color: #a62c10 !important; }
+.weekday-card:nth-child(even) strong { color: #17130f !important; }
+
+/* Yellow footer and accent areas use deep ink, never orange-on-yellow. */
+.site-footer { background: #ffd447 !important; color: #17130f !important; }
+.site-footer a, .site-footer p, .site-footer span, .site-footer .footer-contact,
+.site-footer .footer-bottom, .site-footer .back-top { color: #17130f !important; opacity: 1 !important; }
+.site-footer a:hover { color: #8e240d !important; }
+.site-footer .brand-name span { color: #8e240d !important; }
+.site-footer .footer-social a { border-color: #17130f !important; }
+.story-section { background: #b83212 !important; color: #fffdf6 !important; }
+.story-section .section-kicker,
+.story-section .story-copy h2,
+.story-section .story-copy p,
+.story-section .story-signoff { color: #fffdf6 !important; }
+.story-section .story-copy h2 em { color: #ffd447 !important; }
+.story-section .story-copy .section-kicker:after { background: #ffd447 !important; }
+.quote-band { color: #17130f !important; }
+.quote-band > p { color: #17130f !important; }
+.quote-band > p em { color: #8e240d !important; }
+.menu-item p, .menu-disclaimer { color: #e2d7c5 !important; }
+.menu-tab { color: #fffdf6 !important; }
+.menu-tab.active, .menu-tab:hover { color: #fffdf6 !important; background: #b83212 !important; border-color: #b83212 !important; }
+.reservation-band .section-kicker,
+.reservation-band > p,
+.reservation-band .reservation-footnote { color: #fffdf6 !important; }
+.reservation-band h2 { color: #fffdf6 !important; }
+.reservation-band h2 em { color: #ffd447 !important; }
+@media (max-width: 600px) {
+  .experience-card .experience-card-bottom h3 { color: #fffdf6 !important; }
+  .events-section .events-heading h2 { color: #17130f !important; }
+}
