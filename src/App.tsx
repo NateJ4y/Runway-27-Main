@@ -114,7 +114,7 @@ export default function App() {
       <section className="menu-section section-pad" id="menu">
         <div className="menu-photo"><ParallaxImage src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1200&q=85" alt="Freshly prepared seasonal dish"/><div className="photo-caption"><span>FRESH THINKING.</span><span>FEARLESS FLAVOUR.</span></div></div>
         <div className="menu-content">
-          <div className="section-kicker"><span>02 / FROM OUR KITCHEN</span><span>THE MENU</span></div>
+          <div className="section-kicker"><span>03 / FROM OUR KITCHEN</span><span>THE MENU</span></div>
           <h2>A little unexpected.<br/><em>Always memorable.</em></h2>
           <p className="menu-intro">Seasonal ingredients, generous flavour and the kind of menu that makes choosing the next bite part of the fun.</p>
           <div className="menu-tabs" role="tablist" aria-label="Menu categories">{categories.map(c => <button key={c} role="tab" aria-selected={menuCategory === c} className={menuCategory === c ? 'menu-tab active' : 'menu-tab'} onClick={() => setMenuCategory(c)}>{c}</button>)}</div>
@@ -127,7 +127,7 @@ export default function App() {
       <section className="quote-band"><div className="quote-orb">R<span>27</span></div><p>“The best nights don’t need a reason.<br/><em>Just the right place.”</em></p><span className="quote-caption">YOUR TABLE IS WAITING</span></section>
 
       <section className="events-section section-pad" id="events">
-        <div className="section-kicker"><span>03 / ON THE CALENDAR</span><span>GOOD THINGS ARE HAPPENING</span></div>
+        <div className="section-kicker"><span>04 / ON THE CALENDAR</span><span>GOOD THINGS ARE HAPPENING</span></div>
         <div className="events-heading"><h2>Make a night<br/><em>of it.</em></h2><p>From intimate dinners to high-energy nights, there’s always another reason to come through.</p></div>
         <div className="events-grid">{events.map((event, i) => <motion.article className="event-card" key={event.title} initial="hidden" whileInView="visible" viewport={{ once: true, amount: .15 }} variants={{ hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0, transition: { duration: .6, delay: i * .12 } } }}><div className="event-image"><img src={event.image} alt="" loading="lazy"/><span className="event-date">{event.date}</span><span className="event-arrow"><ArrowUpRight/></span></div><div className="event-meta">{event.type}</div><h3>{event.title}</h3><p>{event.description}</p><button className="event-link" onClick={openBooking}>Enquire about this event <ArrowRight size={15}/></button></motion.article>)}</div>
         <p className="menu-disclaimer">Event names and dates are illustrative placeholders, not confirmed listings.</p>
@@ -135,11 +135,11 @@ export default function App() {
 
       <section className="story-section" id="story">
         <div className="story-image"><ParallaxImage src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1400&q=85" alt="Atmospheric restaurant interior"/><div className="story-image-label">THE ART OF A GOOD NIGHT</div></div>
-        <div className="story-copy"><div className="section-kicker"><span>04 / THE RUNWAY WAY</span></div><h2>Every detail has<br/>a <em>feeling.</em></h2><p>We believe a great venue is more than a room. It’s the welcome at the door, the first sip, the playlist you Shazam and the conversation that runs past closing time.</p><p>Runway27 brings those little things together, so the ordinary evening gets a chance to become something else.</p><div className="story-signoff"><span className="signoff-line"/><span>THE RUNWAY27 PROMISE</span></div></div>
+        <div className="story-copy"><div className="section-kicker"><span>05 / THE RUNWAY WAY</span></div><h2>Every detail has<br/>a <em>feeling.</em></h2><p>We believe a great venue is more than a room. It’s the welcome at the door, the first sip, the playlist you Shazam and the conversation that runs past closing time.</p><p>Runway27 brings those little things together, so the ordinary evening gets a chance to become something else.</p><div className="story-signoff"><span className="signoff-line"/><span>THE RUNWAY27 PROMISE</span></div></div>
       </section>
 
       <section className="reservation-band">
-        <div className="reservation-glow"/><div className="section-kicker"><span>05 / YOUR EVENING STARTS HERE</span><span>MAKE IT YOURS</span></div>
+        <div className="reservation-glow"/><div className="section-kicker"><span>06 / YOUR EVENING STARTS HERE</span><span>MAKE IT YOURS</span></div>
         <h2>We’ll save<br/><em>you a place.</em></h2><p>Date night, catch-up, celebration or just because. We’ll see you there.</p><button className="button button-gold" onClick={openBooking}>Reserve a table <ArrowUpRight size={17}/></button>
         <span className="reservation-footnote">RESERVATIONS ARE FREE · GOOD COMPANY IS ESSENTIAL</span>
       </section>
