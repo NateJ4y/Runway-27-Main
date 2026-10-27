@@ -3,6 +3,7 @@ import type { FormEvent } from 'react';
 import { AnimatePresence, motion, useReducedMotion, useScroll, useSpring, useTransform } from 'framer-motion';
 import { ArrowDownRight, ArrowRight, ArrowUpRight, CalendarDays, Check, Clock3, Instagram, MapPin, Menu as MenuIcon, Sparkles, UtensilsCrossed, X, Phone, Plane, Users, Bike, Ticket } from 'lucide-react';
 import Scene from './Scene';
+import MenuBlock from './components/ui/menu-1';
 import { events, menuItems } from './data';
 
 const fadeUp = { hidden: { opacity: 0, y: 26 }, visible: { opacity: 1, y: 0, transition: { duration: 0.75, ease: 'easeOut' } } };
@@ -120,18 +121,7 @@ export default function App() {
         <div className="amenities-strip"><span><Users size={17}/> Family friendly</span><span><Sparkles size={17}/> Kids play area</span><span><Plane size={18}/> Aircraft & runway views</span><span><span className="pool-icon">8</span> Pool tables</span></div>
       </motion.section>
 
-      <motion.section className="menu-section section-pad" id="menu" initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.06 }} variants={sectionMotion}>
-        <div className="menu-photo"><ParallaxImage src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1200&q=85" alt="Freshly prepared seasonal dish"/><div className="photo-caption"><span>FRESH THINKING.</span><span>FEARLESS FLAVOUR.</span></div></div>
-        <div className="menu-content">
-          <div className="section-kicker"><span>03 / FROM OUR KITCHEN</span><span>THE MENU</span></div>
-          <h2>A little unexpected.<br/><em>Always memorable.</em></h2>
-          <p className="menu-intro">Seasonal ingredients, generous flavour and the kind of menu that makes choosing the next bite part of the fun.</p>
-          <div className="menu-tabs" role="tablist" aria-label="Menu categories">{categories.map(c => <button key={c} role="tab" aria-selected={menuCategory === c} className={menuCategory === c ? 'menu-tab active' : 'menu-tab'} onClick={() => setMenuCategory(c)}>{c}</button>)}</div>
-          <div className="menu-list">{filteredMenu.map((item, i) => <motion.div className="menu-item" key={item.name} layout initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: .25, delay: i * .025 }}><div><h3>{item.name}</h3><p>{item.description}</p></div><span className="menu-price">{item.price}</span></motion.div>)}</div>
-          <p className="menu-disclaimer">Sample menu for design preview. Final menu and prices to be confirmed.</p>
-          <button className="button button-outline" onClick={openBooking}>Join us at the table <ArrowUpRight size={16}/></button>
-        </div>
-      </motion.section>
+      <MenuBlock />
 
       <motion.section className="quote-band" initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.06 }} variants={sectionMotion}><div className="quote-orb">R<span>27</span></div><p>“The best nights don’t need a reason.<br/><em>Just the right place.”</em></p><span className="quote-caption">YOUR TABLE IS WAITING</span></motion.section>
 
