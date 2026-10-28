@@ -1686,61 +1686,16 @@ footer p,footer li,footer small,
 }
 
 
-/* Standalone page views: keep shared navigation, give Menu and What's On their own page canvases. */
-.page-menu .hero,
-.page-menu .intro,
-.page-menu .promotions-section,
-.page-menu .quote-band,
-.page-menu .events-section,
-.page-menu .story-section,
-.page-menu .reservation-band,
-.page-whats-on .hero,
-.page-whats-on .intro,
-.page-whats-on .menu-block,
-.page-whats-on .quote-band,
-.page-whats-on .story-section,
-.page-whats-on .reservation-band { display: none !important; }
-
-.page-menu main::before,
-.page-whats-on main::before {
-  display: block;
-  padding: clamp(72px, 10vw, 132px) 7.1% 54px;
-  color: #fffdf8;
-  background: #09090d;
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(54px, 9vw, 112px);
-  line-height: .94;
-  letter-spacing: -.055em;
-  white-space: pre-line;
+/* Standalone page views: shared navigation, separate Menu and What's On canvases. */
+.page-menu .hero,.page-menu .intro,.page-menu .promotions-section,.page-menu .quote-band,.page-menu .events-section,.page-menu .story-section,.page-menu .reservation-band,
+.page-whats-on .hero,.page-whats-on .intro,.page-whats-on .menu-block,.page-whats-on .quote-band,.page-whats-on .story-section,.page-whats-on .reservation-band { display:none!important; }
+.page-menu main::before,.page-whats-on main::before {
+ display:block;padding:clamp(72px,10vw,132px) 7.1% 54px;color:#fffdf8;background:#09090d;
+ font-family:'Playfair Display',serif;font-size:clamp(54px,9vw,112px);line-height:.94;letter-spacing:-.055em;white-space:pre-line;
 }
-.page-menu main::before {
-  content: "Food & drink.";
-  color: #fffdf8;
-}
-.page-whats-on main::before {
-  content: "What’s on.";
-  color: #fffdf8;
-}
-.page-menu main::after,
-.page-whats-on main::after {
-  display: block;
-  padding: 0 7.1% 42px;
-  margin-top: -40px;
-  color: #d4b47a;
-  background: #09090d;
-  font-size: 12px;
-  letter-spacing: .08em;
-}
-.page-menu main::after { content: "FROM OUR KITCHEN & BAR"; }
-.page-whats-on main::after { content: "SPECIALS · ENTERTAINMENT · CELEBRATIONS"; }
-.page-menu .menu-block { padding-top: 38px; }
-.page-menu .menu-block-heading { display: none; }
-.page-whats-on .promotions-section { padding-top: 24px; }
-.page-menu .site-footer,
-.page-whats-on .site-footer { margin-top: 0; }
-@media (max-width: 640px) {
-  .page-menu main::before,
-  .page-whats-on main::before { padding-bottom: 48px; }
-  .page-menu main::after,
-  .page-whats-on main::after { margin-top: -32px; }
-}
+.page-menu main::before { content:"Food & drink.\\A FROM OUR KITCHEN & BAR"; }
+.page-whats-on main::before { content:"What’s on.\\A SPECIALS · ENTERTAINMENT · CELEBRATIONS"; }
+.page-menu .menu-block { padding-top:38px; }
+.page-menu .menu-block-heading { display:none; }
+.page-whats-on .promotions-section { padding-top:24px; }
+@media(max-width:640px){.page-menu main::before,.page-whats-on main::before{padding-bottom:48px}}
