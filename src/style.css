@@ -1042,3 +1042,15 @@ body{background:#050505;color:#fff5d9}
   }
   .brand-logo{width:148px !important;max-height:62px !important;}
 }
+
+
+/* Remove the added dark header overlay; keep the nav clean over the hero image. */
+.site-header{
+  background:transparent !important;
+  box-shadow:none !important;
+  backdrop-filter:none !important;
+  -webkit-backdrop-filter:none !important;
+}
+@media(max-width:720px){
+  .site-header{background:transparent !important;box-shadow:none !important;}
+}
