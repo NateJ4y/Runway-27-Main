@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import type { FormEvent } from 'react';
-import { AnimatePresence, motion, useMotionValueEvent, useReducedMotion, useScroll, useSpring, useTransform } from 'framer-motion';
+import { AnimatePresence, motion, useReducedMotion, useScroll, useSpring, useTransform } from 'framer-motion';
 import { ArrowDownRight, ArrowRight, ArrowUpRight, CalendarDays, Check, Clock3, Instagram, MapPin, Menu as MenuIcon, Sparkles, UtensilsCrossed, X, Phone, Plane, Users, Bike, Ticket } from 'lucide-react';
 import runwayLogo from './image-removebg-preview (2).png';
 import MenuBlock from './components/ui/menu-1';
@@ -10,17 +10,9 @@ const fadeUp = { hidden: { opacity: 0, y: 26 }, visible: { opacity: 1, y: 0, tra
 const sectionMotion = { hidden: { opacity: 0, y: 54, scale: 0.985 }, visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.72, ease: 'easeOut' } } };
 const categories = ['All', 'Plates', 'Small bites', 'Drinks'] as const;
 
-function HeroVideo({ progress }: { progress: ReturnType<typeof useScroll>['scrollYProgress'] }) {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const reduceMotion = useReducedMotion();
-  useMotionValueEvent(progress, 'change', (value) => {
-    const video = videoRef.current;
-    if (!video || !Number.isFinite(video.duration) || video.duration <= 0 || reduceMotion) return;
-    const nextTime = Math.min(video.duration - 0.05, Math.max(0, value * video.duration));
-    if (Math.abs(video.currentTime - nextTime) > 0.08) video.currentTime = nextTime;
-  });
+function HeroVideo() {
   return <div className="hero-video-wrap" aria-hidden="true">
-    <video ref={videoRef} className="hero-video" muted playsInline preload="metadata" poster="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1600&q=70">
+    <video className="hero-video" muted playsInline autoPlay loop preload="metadata" poster="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1600&q=70">
       <source src="https://videos.pexels.com/video-files/36083260/15302798_1920_1080_60fps.mp4" type="video/mp4" />
     </video>
   </div>;
@@ -90,7 +82,7 @@ export default function App() {
     <main>
       <section className="hero" id="home" ref={heroRef}>
         <motion.div className="hero-image-layer" style={{ scale: heroScale, y: heroImageY }} aria-hidden="true" />
-        <HeroVideo progress={heroProgress} />
+        <HeroVideo />
         <div className="hero-vignette" />
         <div className="hero-topline"><span>26° 12' S — 28° 02' E</span><span className="topline-center"><i/> A PLACE TO ARRIVE</span><span>EST. MMXXVII</span></div>
         <motion.div className="hero-content" style={{ y: heroContentY, opacity: heroContentOpacity }} initial="hidden" animate="visible" variants={{ visible: { transition: { staggerChildren: 0.12 } } }}>
