@@ -1774,3 +1774,10 @@ footer p,footer li,footer small,
 .events-section .event-card .event-link {
   color: #FFFFFF !important;
 }
+
+
+/* Keep the “Make a night” headline in the site's gold accent. */
+.events-section .events-heading h2,
+.events-section .events-heading h2 em {
+  color: #F6BD28 !important;
+}
