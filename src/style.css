@@ -1496,3 +1496,96 @@ body{background:#050505;color:#fff5d9}
   }
   .hero-topline .topline-center { margin-left: auto !important; }
 }
+
+
+/* STABILITY + CONTRAST PASS
+   Keep Framer Motion in charge of component transitions. The previous stacked
+   view-timeline rules competed with one another and caused flicker/hidden copy. */
+@supports (animation-timeline: view(block)) {
+  .intro > .section-kicker,
+  .intro .intro-grid > *,
+  .experience-card,
+  .promotions-section > .section-kicker,
+  .promos-heading > *,
+  .promo-card,
+  .weekday-heading,
+  .weekday-card,
+  .promo-terms,
+  .secondary-promo,
+  .amenities-strip > *,
+  .menu-block-heading > *,
+  .menu-block-course,
+  .menu-block-footnote,
+  .quote-band > *,
+  .events-section > .section-kicker,
+  .events-heading > *,
+  .event-card,
+  .events-section > .menu-disclaimer,
+  .story-image,
+  .story-copy > *,
+  .reservation-band > *,
+  .footer-top > *,
+  .footer-bottom > *,
+  .footer-contact > *,
+  .hero-content, .hero-stamp, .menu-photo, .menu-content,
+  .reservation-band h2, .reservation-band>p, .reservation-band>.button,
+  .reservation-footnote {
+    animation: none !important;
+    filter: none;
+  }
+}
+/* One legible text system across dark panels and gold accents. */
+:root { --gold:#F6BD28; --paper:#FFFDF8; --muted:#C9C4CC; }
+body, .site-shell { color:#FFFDF8; background:#080808; }
+.intro,.events-section { background:#0B0B0D !important; }
+.menu-section,.story-section { background:#111113 !important; }
+.quote-band,.reservation-band { background-color:#080808 !important; }
+.hero-copy,.intro-aside p,.menu-intro,.events-heading>p,.story-copy>p,
+.reservation-band>p,.footer-top>p,.modal-intro,.booking-success p {
+  color:#E2DEE5 !important;
+}
+.section-kicker,.hero-topline,.hero-bottomline,.quote-caption,.footer-bottom,
+.footer-contact,.reservation-footnote { color:#C5BEC9 !important; }
+.menu-item p,.event-card>p,.promo-body>p,.secondary-promo p,
+.promo-terms,.weekday-card p,.menu-disclaimer { color:#D0CBD2 !important; }
+.menu-tab { color:#D1CBD5 !important; }
+.booking-form label { color:#F0ECF2 !important; }
+.booking-form input::placeholder,.booking-form textarea::placeholder { color:#B4ACB8 !important; }
+.hero .hero-vignette { background:
+  linear-gradient(90deg,rgba(0,0,0,.94) 0%,rgba(0,0,0,.78) 38%,rgba(0,0,0,.32) 76%,rgba(0,0,0,.46) 100%),
+  linear-gradient(0deg,#080808 0%,rgba(0,0,0,.12) 30%,rgba(0,0,0,.44) 100%) !important; }
+.weekday-swipe-hint {
+  display:flex; align-items:center; gap:8px; margin:12px 0 0;
+  color:#FFFDF8 !important; font-size:10px; font-weight:800;
+  letter-spacing:.13em; line-height:1.4;
+}
+.weekday-swipe-hint span {
+  display:inline-grid; place-items:center; width:25px; height:25px;
+  border:1px solid #F6BD28; border-radius:50%; color:#F6BD28;
+  font-size:17px; line-height:1;
+}
+.weekday-heading { align-items:flex-start; }
+.weekday-grid {
+  scroll-behavior:smooth !important;
+  -webkit-overflow-scrolling:touch;
+  overscroll-behavior-x:contain;
+  scrollbar-width:thin;
+  scrollbar-color:#F6BD28 #333;
+}
+.weekday-grid:focus-visible { outline:2px solid #F6BD28; outline-offset:4px; }
+html {
+  scroll-behavior:smooth !important;
+  scroll-padding-top:100px;
+  -webkit-text-size-adjust:100%;
+}
+[id] { scroll-margin-top:100px; }
+a,button,input,select,textarea { touch-action:manipulation; }
+@media(max-width:720px) {
+  .weekday-swipe-hint { font-size:9px; margin-top:10px; }
+  .weekday-heading { gap:14px; }
+  .weekday-heading>div { min-width:0; }
+  .weekday-grid { scroll-padding-inline:8px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  html,.weekday-grid { scroll-behavior:auto !important; }
+}
