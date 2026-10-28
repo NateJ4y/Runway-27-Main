@@ -1589,3 +1589,42 @@ a,button,input,select,textarea { touch-action:manipulation; }
 @media(prefers-reduced-motion:reduce) {
   html,.weekday-grid { scroll-behavior:auto !important; }
 }
+
+
+/* FIX: all content after “Make a night of it” uses light text on dark surfaces. */
+.events-section,
+.story-section,
+.reservation-band,
+footer,
+.site-footer {
+  color:#FFFDF8 !important;
+}
+.events-section h1,.events-section h2,.events-section h3,.events-section h4,
+.story-section h1,.story-section h2,.story-section h3,.story-section h4,
+.reservation-band h1,.reservation-band h2,.reservation-band h3,.reservation-band h4,
+footer h1,footer h2,footer h3,footer h4,
+.events-section p,.events-section li,.events-section small,
+.story-section p,.story-section li,.story-section small,
+.reservation-band p,.reservation-band li,.reservation-band small,
+footer p,footer li,footer small,
+.events-section .event-card,.events-section .event-card *:not(.event-arrow):not(.promo-price):not(.promo-sticker),
+.story-section .story-copy,.story-section .story-copy *,
+.reservation-band .reservation-footnote,
+.footer-top>p,.footer-bottom,.footer-contact,.footer-contact a {
+  color:#FFFDF8 !important;
+}
+.events-section .eyebrow,.events-section .event-meta,
+.events-section .event-link,.story-section .eyebrow,
+.reservation-band .eyebrow,.footer-contact svg {
+  color:#F6BD28 !important;
+}
+.events-section .event-card,
+.story-section .story-copy,
+.reservation-band {
+  background-color:#111113;
+}
+.events-section a:focus-visible,.story-section a:focus-visible,
+.reservation-band a:focus-visible,footer a:focus-visible {
+  outline:2px solid #F6BD28 !important;
+  outline-offset:4px;
+}
