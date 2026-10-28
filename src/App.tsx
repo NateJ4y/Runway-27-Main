@@ -186,7 +186,7 @@ export default function App() {
 
     <footer className="site-footer">
       <div className="footer-top"><a href="#home" className="brand footer-brand"><img className="brand-logo" src={runwayLogo} alt="Runway 27 Kitchen & Bar" /></a><p>Runway 27 Kitchen &amp; Bar.<br/>Good food, family fun and runway views.</p><a href="#home" className="back-top">BACK TO TOP <ArrowUpRight size={14}/></a></div>
-      <div className="footer-bottom"><span>© 2026 RUNWAY 27 KITCHEN &amp; BAR</span><div><a href="#experience">EXPERIENCE</a><a href="#menu">MENU</a><a href="#events">EVENTS</a></div><div className="footer-social"><a href="#contact" aria-label="Instagram"><Instagram size={16}/></a><a href="mailto:hello@runway27.example" aria-label="Email Runway27"><ArrowUpRight size={16}/></a></div></div>
+      <div className="footer-bottom"><span>© 2026 RUNWAY 27 KITCHEN &amp; BAR</span><div><a href="#experience">EXPERIENCE</a><a href="#menu">MENU</a><a href="#events">EVENTS</a></div><div className="footer-social"><a href="#contact" aria-label="Instagram"><Instagram size={16}/></a><a href="tel:+27665760223" aria-label="Call Runway27"><Phone size={16}/></a></div></div>
       <div id="contact" className="footer-contact"><a href="https://www.google.com/maps/search/?api=1&query=Transvaal+Aviation+Building%2C+Dakota+Crescent%2C+Germiston" target="_blank" rel="noreferrer"><MapPin size={14}/> Transvaal Aviation Building, Dakota Crescent, Germiston <ArrowUpRight size={13}/></a><a href="tel:+27665760223"><Phone size={14}/> 066 576 0223</a><a href="https://wa.me/27665760223" target="_blank" rel="noreferrer"><Phone size={14}/> WhatsApp Runway27 <ArrowUpRight size={13}/></a><span><UtensilsCrossed size={13}/> Dining · Family fun · Events</span></div>
     </footer>
 
