@@ -46,7 +46,7 @@ export default function App() {
     <ScrollProgress />
     <div className="announcement"><span className="announcement-dot" /> GOOD TIMES. GOOD FOOD. <span className="announcement-line" /> <span>GERMISTON, SOUTH AFRICA</span></div>
     <header className="site-header">
-      <a href="#home" className="brand" onClick={closeNav} aria-label="Runway27 home"><img className="brand-logo" src={runwayLogo} alt="Runway 27 Kitchen & Bar" /></a>
+      
       <nav className={menuOpen ? 'nav-links nav-open' : 'nav-links'} aria-label="Main navigation">
         <a href="#experience" onClick={closeNav}>The experience</a><a href="#specials" onClick={closeNav}>Specials</a><a href="#menu" onClick={closeNav}>Menu</a><a href="#events" onClick={closeNav}>What’s on</a><a href="#contact" onClick={closeNav}>Find us</a>
         <button className="mobile-book" onClick={openBooking}>Book a table <ArrowUpRight size={15}/></button>
@@ -62,6 +62,7 @@ export default function App() {
         <div className="hero-vignette" />
         <div className="hero-topline"><span>26° 12' S — 28° 02' E</span><span className="topline-center"><i/> A PLACE TO ARRIVE</span><span>EST. MMXXVII</span></div>
         <motion.div className="hero-content" style={{ y: heroContentY, opacity: heroContentOpacity }} initial="hidden" animate="visible" variants={{ visible: { transition: { staggerChildren: 0.12 } } }}>
+          <motion.img className="hero-logo" src={runwayLogo} alt="Runway 27 Kitchen & Bar" variants={fadeUp} />
           <motion.p className="eyebrow" variants={fadeUp}><span className="eyebrow-rule"/> YOUR TABLE WITH A VIEW</motion.p>
           <motion.h1 variants={fadeUp}>Good times.<br/><em>Good food.</em></motion.h1>
           <motion.p className="hero-copy" variants={fadeUp}>Good food, family-friendly fun and front-row views of the runway. Your next favourite spot is in Germiston.</motion.p>
