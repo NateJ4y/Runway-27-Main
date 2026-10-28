@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+import type { ReactNode } from 'react';
 import { ArrowUpRight, Search, UtensilsCrossed } from 'lucide-react';
 
 type Dish = { name: string; price: string; description?: string };
@@ -43,7 +44,7 @@ const pizza: Dish[] = [
 const categoryLinks = [{id:"breakfast",label:"Breakfast"},{id:"sandwiches",label:"Sandwiches"},{id:"fresh",label:"Salads & soups"},{id:"starters",label:"Starters"},{id:"mains",label:"Kids & mains"},{id:"sushi",label:"Sushi"},{id:"pizza",label:"Pizza"}];
 function DishList({dishes}:{dishes:Dish[]}) { return <ul className="menu-page-dishes">{dishes.map(d=><li className="menu-page-dish" key={d.name}><div className="menu-page-dishline"><span className="menu-page-dishname">{d.name}</span><span className="menu-page-dots"/><span className="menu-page-price">{d.price}</span></div>{d.description&&<p>{d.description}</p>}</li>)}</ul>; }
 function Column({title,dishes}:{title:string;dishes:Dish[]}) { return <div className="menu-page-column"><h3>{title}</h3><DishList dishes={dishes}/></div>; }
-function Panel({id,eyebrow,title,description,children}:{id:string;eyebrow:string;title:string;description?:string;children:React.ReactNode}) { return <section className="menu-page-panel" id={id}><div className="menu-page-panel-heading"><span>{eyebrow}</span><h2>{title}</h2>{description&&<p>{description}</p>}</div>{children}</section>; }
+function Panel({id,eyebrow,title,description,children}:{id:string;eyebrow:string;title:string;description?:string;children:ReactNode}) { return <section className="menu-page-panel" id={id}><div className="menu-page-panel-heading"><span>{eyebrow}</span><h2>{title}</h2>{description&&<p>{description}</p>}</div>{children}</section>; }
 
 export default function MenuBlock() {
  const [query,setQuery]=useState("");
