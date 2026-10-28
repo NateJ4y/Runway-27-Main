@@ -1687,7 +1687,7 @@ footer p,footer li,footer small,
 
 
 /* Standalone page views: shared navigation, separate Menu and What's On canvases. */
-.page-menu .hero,.page-menu .intro,.page-menu .promotions-section,.page-menu .quote-band,.page-menu .events-section,.page-menu .story-section,.page-menu .reservation-band,
+.page-home .menu-block,.page-menu .hero,.page-menu .intro,.page-menu .promotions-section,.page-menu .quote-band,.page-menu .events-section,.page-menu .story-section,.page-menu .reservation-band,
 .page-whats-on .hero,.page-whats-on .intro,.page-whats-on .menu-block,.page-whats-on .quote-band,.page-whats-on .story-section,.page-whats-on .reservation-band { display:none!important; }
 .page-menu main::before,.page-whats-on main::before {
  display:block;padding:clamp(72px,10vw,132px) 7.1% 54px;color:#fffdf8;background:#09090d;
