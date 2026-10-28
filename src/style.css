@@ -405,8 +405,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   --ink: #17130f;
   --paper: #f6eedf;
   --cream: #f6eedf;
-  --orange: #ff4d1c;
-  --burnt: #ff4d1c;
+  --orange: #f6bd28;
+  --burnt: #f6bd28;
   --gold: #ffd447;
   --sunshine: #ffd447;
   --line: rgba(23,19,15,.22);
@@ -973,4 +973,40 @@ body{background:#050505;color:#fff5d9}
 @media(max-width:720px){
   .brand-logo{width:132px;max-height:58px;}
   .footer-brand .brand-logo{width:148px;max-height:68px;}
+}
+
+
+/* Final visual polish from homepage review: clear the header, enlarge the real logo, and use aviation gold. */
+.site-header{
+  top:0 !important;
+  height:112px !important;
+  padding-left:5.5% !important;
+  padding-right:5.5% !important;
+  background:linear-gradient(180deg,rgba(0,0,0,.82),rgba(0,0,0,.25));
+}
+.brand-logo{
+  width:clamp(176px,15vw,218px) !important;
+  max-height:84px !important;
+}
+.footer-brand .brand-logo{
+  width:clamp(150px,14vw,190px) !important;
+  max-height:80px !important;
+}
+.hero-content{
+  margin-top:205px !important;
+}
+.hero-topline{
+  top:145px !important;
+}
+/* Keep all former orange accent surfaces in the gold aviation palette. */
+.header-book,.mobile-book,.quote-orb,.promo-sticker{
+  background:#f6bd28 !important;
+  color:#100c04 !important;
+  border-color:#f6bd28 !important;
+}
+@media(max-width:720px){
+  .site-header{height:88px !important;padding-left:18px !important;padding-right:18px !important;}
+  .brand-logo{width:158px !important;max-height:66px !important;}
+  .hero-content{margin-top:150px !important;}
+  .hero-topline{top:108px !important;}
 }
