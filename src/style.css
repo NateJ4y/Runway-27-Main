@@ -1054,3 +1054,73 @@ body{background:#050505;color:#fff5d9}
 @media(max-width:720px){
   .site-header{background:transparent !important;box-shadow:none !important;}
 }
+
+
+/* MOBILE HEADER SPACING: align logo and menu button, keep dropdown attached to header. */
+@media(max-width:900px){
+  .site-header{
+    position:absolute !important;
+    top:0 !important;
+    left:0 !important;
+    right:0 !important;
+    height:76px !important;
+    min-height:76px !important;
+    box-sizing:border-box !important;
+    padding:0 22px !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:space-between !important;
+    gap:16px !important;
+    border-bottom:1px solid rgba(246,189,40,.3) !important;
+    background:transparent !important;
+  }
+  .site-header .brand{
+    min-width:0 !important;
+    flex:0 1 auto !important;
+    display:flex !important;
+    align-items:center !important;
+    margin:0 !important;
+  }
+  .site-header .brand-logo{
+    display:block !important;
+    width:148px !important;
+    height:auto !important;
+    max-height:58px !important;
+    object-fit:contain !important;
+  }
+  .site-header .menu-toggle{
+    display:grid !important;
+    place-items:center !important;
+    flex:0 0 42px !important;
+    width:42px !important;
+    height:42px !important;
+    margin:0 !important;
+    padding:0 !important;
+    border:1px solid rgba(246,189,40,.55) !important;
+    border-radius:2px !important;
+    background:rgba(0,0,0,.28) !important;
+    color:#f6bd28 !important;
+    position:relative !important;
+    z-index:103 !important;
+  }
+  .site-header .header-book{display:none !important;}
+  .site-header .nav-links{
+    top:100% !important;
+    left:0 !important;
+    right:0 !important;
+    margin:0 !important;
+    padding:10px 22px 20px !important;
+    background:rgba(5,5,5,.98) !important;
+    border-bottom:1px solid rgba(246,189,40,.55) !important;
+    box-shadow:0 14px 24px rgba(0,0,0,.22) !important;
+  }
+  .site-header .nav-links.nav-open{display:flex !important;flex-direction:column !important;}
+  .site-header .nav-links>a{padding:14px 0 !important;line-height:1.35 !important;}
+  .site-header .nav-links .mobile-book{display:flex !important;align-items:center !important;justify-content:space-between !important;margin-top:14px !important;padding:13px 15px !important;background:#f6bd28 !important;color:#100c04 !important;}
+}
+@media(max-width:480px){
+  .site-header{height:70px !important;min-height:70px !important;padding:0 16px !important;gap:12px !important;}
+  .site-header .brand-logo{width:132px !important;max-height:52px !important;}
+  .site-header .menu-toggle{flex-basis:40px !important;width:40px !important;height:40px !important;}
+  .site-header .nav-links{padding:8px 16px 18px !important;}
+}
