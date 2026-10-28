@@ -1758,3 +1758,19 @@ footer p,footer li,footer small,
 }
 
 .page-menu main::before{display:none!important}
+
+
+/* Events heading and supporting copy: keep every word white. */
+.events-section .events-heading,
+.events-section .events-heading *,
+.events-section .section-kicker,
+.events-section .section-kicker *,
+.events-section .events-heading h2 em,
+.events-section .events-heading p,
+.events-section .event-card,
+.events-section .event-card h3,
+.events-section .event-card p,
+.events-section .event-card .event-meta,
+.events-section .event-card .event-link {
+  color: #FFFFFF !important;
+}
