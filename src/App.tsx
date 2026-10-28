@@ -1,14 +1,13 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import type { FormEvent } from 'react';
 import { AnimatePresence, motion, useReducedMotion, useScroll, useSpring, useTransform } from 'framer-motion';
 import { ArrowDownRight, ArrowRight, ArrowUpRight, CalendarDays, Check, Clock3, Instagram, MapPin, Menu as MenuIcon, Sparkles, UtensilsCrossed, X, Phone, Plane, Users, Bike, Ticket } from 'lucide-react';
 import runwayLogo from './image-removebg-preview (2).png';
 import MenuBlock from './components/ui/menu-1';
-import { events, menuItems } from './data';
+import { events } from './data';
 
 const fadeUp = { hidden: { opacity: 0, y: 26 }, visible: { opacity: 1, y: 0, transition: { duration: 0.75, ease: 'easeOut' } } };
 const sectionMotion = { hidden: { opacity: 0, y: 54, scale: 0.985 }, visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.72, ease: 'easeOut' } } };
-const categories = ['All', 'Plates', 'Small bites', 'Drinks'] as const;
 
 function HeroVideo() {
   return <div className="hero-video-wrap" aria-hidden="true">
@@ -56,14 +55,29 @@ export default function App() {
   const heroContentY = useTransform(heroProgress, [0, 1], reduceMotion ? [0, 0] : [0, -70]);
   const heroContentOpacity = useTransform(heroProgress, [0, 0.72], [1, 0]);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [menuCategory, setMenuCategory] = useState<(typeof categories)[number]>('All');
   const [bookingOpen, setBookingOpen] = useState(false);
   const [bookingSent, setBookingSent] = useState(false);
   const [form, setForm] = useState({ name: '', email: '', date: '', time: '19:00', guests: '2', notes: '' });
-  const filteredMenu = useMemo(() => menuCategory === 'All' ? menuItems : menuItems.filter((item) => item.category === menuCategory), [menuCategory]);
   const closeNav = () => setMenuOpen(false);
   const openBooking = () => { setBookingSent(false); setBookingOpen(true); closeNav(); };
   const submitBooking = (e: FormEvent<HTMLFormElement>) => { e.preventDefault(); setBookingSent(true); };
+
+  useEffect(() => {
+    if (!bookingOpen && !menuOpen) return;
+    const previousOverflow = document.body.style.overflow;
+    if (bookingOpen) document.body.style.overflow = 'hidden';
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        if (bookingOpen) setBookingOpen(false);
+        if (menuOpen) setMenuOpen(false);
+      }
+    };
+    document.addEventListener('keydown', onKeyDown);
+    return () => {
+      document.removeEventListener('keydown', onKeyDown);
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [bookingOpen, menuOpen]);
 
   return <div className="site-shell">
     <ScrollProgress />
@@ -71,12 +85,12 @@ export default function App() {
     <div className="announcement"><span className="announcement-dot" /> GOOD TIMES. GOOD FOOD. <span className="announcement-line" /> <span>GERMISTON, SOUTH AFRICA</span></div>
     <header className="site-header">
       
-      <nav className={menuOpen ? 'nav-links nav-open' : 'nav-links'} aria-label="Main navigation">
+      <nav id="primary-navigation" className={menuOpen ? 'nav-links nav-open' : 'nav-links'} aria-label="Main navigation">
         <a href="#experience" onClick={closeNav}>The experience</a><a href="#specials" onClick={closeNav}>Specials</a><a href="#menu" onClick={closeNav}>Menu</a><a href="#events" onClick={closeNav}>What’s on</a><a href="#contact" onClick={closeNav}>Find us</a>
         <button className="mobile-book" onClick={openBooking}>Book a table <ArrowUpRight size={15}/></button>
       </nav>
       <button className="header-book" onClick={openBooking}>Book a table <ArrowUpRight size={15}/></button>
-      <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? 'Close menu' : 'Open menu'}>{menuOpen ? <X/> : <MenuIcon/>}</button>
+      <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? 'Close menu' : 'Open menu'} aria-expanded={menuOpen} aria-controls="primary-navigation">{menuOpen ? <X/> : <MenuIcon/>}</button>
     </header>
 
     <main>
@@ -176,6 +190,6 @@ export default function App() {
       <div id="contact" className="footer-contact"><a href="https://www.google.com/maps/search/?api=1&query=Transvaal+Aviation+Building%2C+Dakota+Crescent%2C+Germiston" target="_blank" rel="noreferrer"><MapPin size={14}/> Transvaal Aviation Building, Dakota Crescent, Germiston <ArrowUpRight size={13}/></a><a href="tel:+27665760223"><Phone size={14}/> 066 576 0223</a><a href="https://wa.me/27665760223" target="_blank" rel="noreferrer"><Phone size={14}/> WhatsApp Runway27 <ArrowUpRight size={13}/></a><span><UtensilsCrossed size={13}/> Dining · Family fun · Events</span></div>
     </footer>
 
-    <AnimatePresence>{bookingOpen && <motion.div className="modal-backdrop" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onMouseDown={(e) => { if (e.target === e.currentTarget) setBookingOpen(false); }}><motion.div className="booking-modal" initial={{ opacity: 0, y: 24, scale: .98 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 12, scale: .98 }} transition={{ duration: .25 }} role="dialog" aria-modal="true" aria-labelledby="booking-title"><button className="modal-close" onClick={() => setBookingOpen(false)} aria-label="Close reservation form"><X/></button>{bookingSent ? <div className="booking-success"><div className="success-icon"><Check size={25}/></div><span className="eyebrow">REQUEST PREVIEW</span><h2>Looking good.</h2><p>Your form passed the demo checks. No reservation has been created or sent to Runway27 yet.</p><button className="button button-gold" onClick={() => setBookingOpen(false)}>Back to the experience <ArrowRight size={16}/></button></div> : <><span className="eyebrow"><CalendarDays size={14}/> RESERVATIONS</span><h2 id="booking-title">Save your <em>seat.</em></h2><p className="modal-intro">Tell us a little about your evening.</p><form className="booking-form" onSubmit={submitBooking}><label>Full name<input required autoComplete="name" value={form.name} onChange={e => setForm({...form, name:e.target.value})} placeholder="Your name"/></label><label>Email address<input required type="email" autoComplete="email" value={form.email} onChange={e => setForm({...form, email:e.target.value})} placeholder="you@example.com"/></label><div className="form-row"><label>Date<input required type="date" min={new Date().toISOString().slice(0,10)} value={form.date} onChange={e => setForm({...form, date:e.target.value})}/></label><label>Time<select value={form.time} onChange={e => setForm({...form, time:e.target.value})}>{['17:00','17:30','18:00','18:30','19:00','19:30','20:00','20:30','21:00'].map(t=><option key={t}>{t}</option>)}</select></label></div><label>Guests<select value={form.guests} onChange={e => setForm({...form, guests:e.target.value})}>{['1','2','3','4','5','6','7','8'].map(n=><option key={n} value={n}>{n} {n === '1' ? 'guest' : 'guests'}</option>)}</select></label><label>Anything we should know? <span className="optional">(optional)</span><textarea rows={2} value={form.notes} onChange={e => setForm({...form, notes:e.target.value})} placeholder="Celebration, dietary needs, seating request…"/></label><button className="button button-gold booking-submit" type="submit">Preview reservation request <ArrowUpRight size={16}/></button><p className="form-note">Demo only · No data is sent or stored.</p></form></>}</motion.div></motion.div>}</AnimatePresence>
+    <AnimatePresence>{bookingOpen && <motion.div className="modal-backdrop" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onMouseDown={(e) => { if (e.target === e.currentTarget) setBookingOpen(false); }}><motion.div className="booking-modal" initial={{ opacity: 0, y: 24, scale: .98 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 12, scale: .98 }} transition={{ duration: .25 }} role="dialog" aria-modal="true" aria-labelledby="booking-title"><button className="modal-close" onClick={() => setBookingOpen(false)} aria-label="Close reservation form"><X/></button>{bookingSent ? <div className="booking-success"><div className="success-icon"><Check size={25}/></div><span className="eyebrow">REQUEST PREVIEW</span><h2>Looking good.</h2><p>Your form passed the demo checks. No reservation has been created or sent to Runway27 yet.</p><button className="button button-gold" onClick={() => setBookingOpen(false)}>Back to the experience <ArrowRight size={16}/></button></div> : <><span className="eyebrow"><CalendarDays size={14}/> RESERVATIONS</span><h2 id="booking-title">Save your <em>seat.</em></h2><p className="modal-intro">Tell us a little about your evening.</p><form className="booking-form" onSubmit={submitBooking}><label>Full name<input required autoComplete="name" value={form.name} onChange={e => setForm({...form, name:e.target.value})} placeholder="Your name"/></label><label>Email address<input required type="email" autoComplete="email" value={form.email} onChange={e => setForm({...form, email:e.target.value})} placeholder="you@example.com"/></label><div className="form-row"><label>Date<input required type="date" min={(() => { const today = new Date(); const localToday = new Date(today.getTime() - today.getTimezoneOffset() * 60000); return localToday.toISOString().slice(0,10); })()} value={form.date} onChange={e => setForm({...form, date:e.target.value})}/></label><label>Time<select value={form.time} onChange={e => setForm({...form, time:e.target.value})}>{['17:00','17:30','18:00','18:30','19:00','19:30','20:00','20:30','21:00'].map(t=><option key={t}>{t}</option>)}</select></label></div><label>Guests<select value={form.guests} onChange={e => setForm({...form, guests:e.target.value})}>{['1','2','3','4','5','6','7','8'].map(n=><option key={n} value={n}>{n} {n === '1' ? 'guest' : 'guests'}</option>)}</select></label><label>Anything we should know? <span className="optional">(optional)</span><textarea rows={2} value={form.notes} onChange={e => setForm({...form, notes:e.target.value})} placeholder="Celebration, dietary needs, seating request…"/></label><button className="button button-gold booking-submit" type="submit">Preview reservation request <ArrowUpRight size={16}/></button><p className="form-note">Demo only · No data is sent or stored.</p></form></>}</motion.div></motion.div>}</AnimatePresence>
   </div>;
 }
