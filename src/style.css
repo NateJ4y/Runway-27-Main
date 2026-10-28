@@ -1400,8 +1400,10 @@ body{background:#050505;color:#fff5d9}
 }
 
 
-/* SECTION CHOREOGRAPHY: content reveals as it enters the viewport, then exits as it leaves.
-   The hero footage is deliberately independent and continues playing on its own. */
+
+/* ACCESSIBLE SCROLL REVEALS
+   Keep effects compositor-friendly: opacity + translate, no per-frame blur filters.
+   The hero/video is excluded so its footage plays independently of page scrolling. */
 @supports (animation-timeline: view(block)) {
   .intro > .section-kicker,
   .intro .intro-grid > *,
@@ -1428,54 +1430,27 @@ body{background:#050505;color:#fff5d9}
   .footer-top > *,
   .footer-bottom > *,
   .footer-contact > * {
-    animation: runwayRevealAndExit linear both;
+    animation: runwayRevealExit linear both;
     animation-timeline: view(block);
     animation-range: entry 0% exit 100%;
-    will-change: opacity, translate, filter;
   }
 
-  .intro .intro-grid > * { animation-delay: 0ms; }
-  .experience-card:nth-child(2n) { animation-range: entry 0% exit 95%; }
-  .promo-card:nth-child(2) { animation-range: entry 0% exit 90%; }
-  .weekday-card:nth-child(2n) { animation-range: entry 0% exit 92%; }
-  .event-card:nth-child(2n) { animation-range: entry 0% exit 92%; }
-
-  @keyframes runwayRevealAndExit {
-    0% {
-      opacity: .08;
-      translate: 0 56px;
-      filter: blur(7px);
-    }
-    16% {
-      opacity: 1;
-      translate: 0 0;
-      filter: blur(0);
-    }
-    78% {
-      opacity: 1;
-      translate: 0 0;
-      filter: blur(0);
-    }
-    100% {
-      opacity: .08;
-      translate: 0 -48px;
-      filter: blur(6px);
-    }
+  @keyframes runwayRevealExit {
+    0% { opacity: .12; translate: 0 28px; }
+    18%, 78% { opacity: 1; translate: 0 0; }
+    100% { opacity: .12; translate: 0 -24px; }
   }
 }
 
-/* Don't let the reveal system affect the hero's continuously playing footage. */
+/* Keep the hero video independent from scroll-driven section animations. */
 .hero-video,
 .hero-video-wrap {
   animation: none !important;
   transform: none;
 }
-.hero-video {
-  opacity: .78;
-  object-fit: cover;
-}
+.hero-video { opacity: .78; object-fit: cover; }
 
-/* Touch devices and reduced-motion preferences should stay smooth and readable. */
+/* Reduced-motion users get the complete content without scroll-triggered hiding. */
 @media (prefers-reduced-motion: reduce) {
   .intro > .section-kicker,
   .intro .intro-grid > *,
@@ -1507,17 +1482,17 @@ body{background:#050505;color:#fff5d9}
     translate: none !important;
     filter: none !important;
   }
+  .hero-video { display: block !important; animation: none !important; }
 }
 
-
-/* Desktop hero topline: align both remaining labels to the right edge. */
-@media(min-width:901px){
-  .hero-topline{
-    display:flex !important;
-    justify-content:flex-end !important;
-    align-items:center !important;
-    gap:28px !important;
-    text-align:right !important;
+/* Desktop hero labels stay aligned without affecting the mobile composition. */
+@media (min-width: 901px) {
+  .hero-topline {
+    display: flex !important;
+    justify-content: flex-end !important;
+    align-items: center !important;
+    gap: 28px !important;
+    text-align: right !important;
   }
-  .hero-topline .topline-center{margin-left:auto !important;}
+  .hero-topline .topline-center { margin-left: auto !important; }
 }
