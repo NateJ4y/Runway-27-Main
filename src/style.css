@@ -1010,3 +1010,35 @@ body{background:#050505;color:#fff5d9}
   .hero-content{margin-top:150px !important;}
   .hero-topline{top:108px !important;}
 }
+
+
+/* NAV BAR RECOVERY: restore the original header geometry and responsive menu behaviour. */
+.site-header{
+  top:31px !important;
+  height:82px !important;
+  padding-left:5.5% !important;
+  padding-right:5.5% !important;
+  background:transparent !important;
+}
+.brand-logo{
+  width:clamp(160px,13vw,190px) !important;
+  max-height:72px !important;
+}
+@media(max-width:900px){
+  .site-header{
+    top:31px !important;
+    height:72px !important;
+    padding-left:5vw !important;
+    padding-right:5vw !important;
+  }
+}
+@media(max-width:720px){
+  .site-header{
+    top:0 !important;
+    height:76px !important;
+    padding-left:18px !important;
+    padding-right:18px !important;
+    background:rgba(0,0,0,.88) !important;
+  }
+  .brand-logo{width:148px !important;max-height:62px !important;}
+}
