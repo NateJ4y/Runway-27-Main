@@ -1359,3 +1359,42 @@ body{background:#050505;color:#fff5d9}
 @media(prefers-reduced-motion:reduce){
   .scroll-atmosphere{display:none !important}
 }
+
+
+/* TRUE SCROLL-LINKED MOTION: progress follows the scroll position, not hover or timers. */
+.hero-video{animation:none !important;transform:none !important;opacity:.78}
+@supports (animation-timeline: view()) {
+  .hero-content,.hero-stamp,.experience-card,.promo-card,.weekday-card,.secondary-promo,
+  .menu-photo,.menu-content,.quote-band .quote-orb,.quote-band p,.quote-caption,
+  .event-card,.story-image,.story-copy,.reservation-band h2,.reservation-band>p,
+  .reservation-band>.button,.reservation-footnote {
+    animation: runwayScrollTravel linear both;
+    animation-timeline:view(block);
+    animation-range:entry 0% exit 100%;
+  }
+  @keyframes runwayScrollTravel {
+    0% { opacity:.35; translate:0 8vh; scale:.975; filter:blur(2px); }
+    18% { opacity:1; translate:0 0; scale:1; filter:blur(0); }
+    78% { opacity:1; translate:0 0; scale:1; filter:blur(0); }
+    100% { opacity:.4; translate:0 -5vh; scale:.985; filter:blur(1px); }
+  }
+  .atmo-starfield{animation: runwayStars linear both;animation-timeline:scroll(root block)}
+  .atmo-cloud-one{animation: runwayCloudOne linear both;animation-timeline:scroll(root block)}
+  .atmo-cloud-two{animation: runwayCloudTwo linear both;animation-timeline:scroll(root block)}
+  .atmo-orbit{animation: runwayOrbit linear both;animation-timeline:scroll(root block)}
+  @keyframes runwayStars{from{translate:0 0}to{translate:0 -35vh}}
+  @keyframes runwayCloudOne{from{translate:-8vw -8vh;scale:.8}to{translate:30vw 70vh;scale:1.35}}
+  @keyframes runwayCloudTwo{from{translate:10vw 0;rotate:0deg}to{translate:-24vw 45vh;rotate:170deg}}
+  @keyframes runwayOrbit{from{translate:-4vw 0;rotate:0deg}to{translate:18vw 45vh;rotate:210deg}}
+}
+/* No independent hover-driven movement: the page's movement is controlled by scrolling. */
+.button:hover,.header-book:hover,.mobile-book:hover,.event-link:hover,.promo-text-link:hover,.back-top:hover{
+  transform:none !important;
+}
+.experience-card:hover,.promo-card:hover,.weekday-card:hover,.secondary-promo:hover,.event-card:hover{
+  transform:none !important;
+}
+@media(prefers-reduced-motion:reduce){
+  .hero-video{display:none !important}
+  .hero-video-wrap{background:#09090d url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1600&q=70') center/cover no-repeat}
+}
