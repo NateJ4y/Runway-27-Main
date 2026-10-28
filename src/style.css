@@ -1398,3 +1398,113 @@ body{background:#050505;color:#fff5d9}
   .hero-video{display:none !important}
   .hero-video-wrap{background:#09090d url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1600&q=70') center/cover no-repeat}
 }
+
+
+/* SECTION CHOREOGRAPHY: content reveals as it enters the viewport, then exits as it leaves.
+   The hero footage is deliberately independent and continues playing on its own. */
+@supports (animation-timeline: view(block)) {
+  .intro > .section-kicker,
+  .intro .intro-grid > *,
+  .experience-card,
+  .promotions-section > .section-kicker,
+  .promos-heading > *,
+  .promo-card,
+  .weekday-heading,
+  .weekday-card,
+  .promo-terms,
+  .secondary-promo,
+  .amenities-strip > *,
+  .menu-block-heading > *,
+  .menu-block-course,
+  .menu-block-footnote,
+  .quote-band > *,
+  .events-section > .section-kicker,
+  .events-heading > *,
+  .event-card,
+  .events-section > .menu-disclaimer,
+  .story-image,
+  .story-copy > *,
+  .reservation-band > *,
+  .footer-top > *,
+  .footer-bottom > *,
+  .footer-contact > * {
+    animation: runwayRevealAndExit linear both;
+    animation-timeline: view(block);
+    animation-range: entry 0% exit 100%;
+    will-change: opacity, translate, filter;
+  }
+
+  .intro .intro-grid > * { animation-delay: 0ms; }
+  .experience-card:nth-child(2n) { animation-range: entry 0% exit 95%; }
+  .promo-card:nth-child(2) { animation-range: entry 0% exit 90%; }
+  .weekday-card:nth-child(2n) { animation-range: entry 0% exit 92%; }
+  .event-card:nth-child(2n) { animation-range: entry 0% exit 92%; }
+
+  @keyframes runwayRevealAndExit {
+    0% {
+      opacity: .08;
+      translate: 0 56px;
+      filter: blur(7px);
+    }
+    16% {
+      opacity: 1;
+      translate: 0 0;
+      filter: blur(0);
+    }
+    78% {
+      opacity: 1;
+      translate: 0 0;
+      filter: blur(0);
+    }
+    100% {
+      opacity: .08;
+      translate: 0 -48px;
+      filter: blur(6px);
+    }
+  }
+}
+
+/* Don't let the reveal system affect the hero's continuously playing footage. */
+.hero-video,
+.hero-video-wrap {
+  animation: none !important;
+  transform: none;
+}
+.hero-video {
+  opacity: .78;
+  object-fit: cover;
+}
+
+/* Touch devices and reduced-motion preferences should stay smooth and readable. */
+@media (prefers-reduced-motion: reduce) {
+  .intro > .section-kicker,
+  .intro .intro-grid > *,
+  .experience-card,
+  .promotions-section > .section-kicker,
+  .promos-heading > *,
+  .promo-card,
+  .weekday-heading,
+  .weekday-card,
+  .promo-terms,
+  .secondary-promo,
+  .amenities-strip > *,
+  .menu-block-heading > *,
+  .menu-block-course,
+  .menu-block-footnote,
+  .quote-band > *,
+  .events-section > .section-kicker,
+  .events-heading > *,
+  .event-card,
+  .events-section > .menu-disclaimer,
+  .story-image,
+  .story-copy > *,
+  .reservation-band > *,
+  .footer-top > *,
+  .footer-bottom > *,
+  .footer-contact > * {
+    animation: none !important;
+    opacity: 1 !important;
+    translate: none !important;
+    filter: none !important;
+  }
+}
