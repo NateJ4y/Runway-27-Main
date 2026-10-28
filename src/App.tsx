@@ -98,7 +98,7 @@ export default function App() {
         <motion.div className="hero-image-layer" style={{ scale: heroScale, y: heroImageY }} aria-hidden="true" />
         <HeroVideo />
         <div className="hero-vignette" />
-        <div className="hero-topline"><span className="topline-center"><i/> A PLACE TO ARRIVE</span><span>EST. MMXXVII</span></div>
+        <div className="hero-topline"><span className="topline-center"><i/> A PLACE TO ARRIVE</span><span>GERMISTON · SOUTH AFRICA</span></div>
         <motion.div className="hero-content" style={{ y: heroContentY, opacity: heroContentOpacity }} initial="hidden" animate="visible" variants={{ visible: { transition: { staggerChildren: 0.12 } } }}>
           <motion.img className="hero-logo" src={runwayLogo} alt="Runway 27 Kitchen & Bar" variants={fadeUp} />
           <motion.p className="eyebrow" variants={fadeUp}><span className="eyebrow-rule"/> YOUR TABLE WITH A VIEW</motion.p>
