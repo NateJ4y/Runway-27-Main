@@ -1124,3 +1124,6 @@ body{background:#050505;color:#fff5d9}
   .site-header .menu-toggle{flex-basis:40px !important;width:40px !important;height:40px !important;}
   .site-header .nav-links{padding:8px 16px 18px !important;}
 }
+
+/* Center the brand in the hero, above the headline. */
+.brand-logo{width:130px;height:auto;object-fit:contain}.hero-content{display:flex;flex-direction:column;align-items:flex-start}.hero-logo{width:clamp(150px,19vw,230px);height:auto;max-height:150px;object-fit:contain;object-position:left center;margin:0 0 28px;filter:drop-shadow(0 8px 24px rgba(0,0,0,.42))}.site-header{justify-content:flex-end}.nav-links{margin-left:0}@media(max-width:760px){.hero-content{margin-left:7.1%;margin-right:7.1%;max-width:560px}.hero-logo{width:clamp(145px,42vw,190px);max-height:115px;margin-bottom:22px}.hero h1{font-size:clamp(54px,13vw,78px)}}
