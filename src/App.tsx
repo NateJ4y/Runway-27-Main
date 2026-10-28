@@ -72,7 +72,8 @@ export default function App() {
   const submitBooking = (e: FormEvent<HTMLFormElement>) => { e.preventDefault(); setBookingSent(true); };
 
   return <div className="site-shell">
-    <ScrollProgress />\n    <ScrollAtmosphere />
+    <ScrollProgress />
+    <ScrollAtmosphere />
     <div className="announcement"><span className="announcement-dot" /> GOOD TIMES. GOOD FOOD. <span className="announcement-line" /> <span>GERMISTON, SOUTH AFRICA</span></div>
     <header className="site-header">
       
