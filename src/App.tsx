@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import type { FormEvent } from 'react';
 import { AnimatePresence, motion, useReducedMotion, useScroll, useSpring, useTransform } from 'framer-motion';
 import { ArrowDownRight, ArrowRight, ArrowUpRight, CalendarDays, Check, Clock3, Instagram, MapPin, Menu as MenuIcon, Sparkles, UtensilsCrossed, X, Phone, Plane, Users, Bike, Ticket } from 'lucide-react';
@@ -9,6 +9,20 @@ import { events, menuItems } from './data';
 const fadeUp = { hidden: { opacity: 0, y: 26 }, visible: { opacity: 1, y: 0, transition: { duration: 0.75, ease: 'easeOut' } } };
 const sectionMotion = { hidden: { opacity: 0, y: 54, scale: 0.985 }, visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.72, ease: 'easeOut' } } };
 const categories = ['All', 'Plates', 'Small bites', 'Drinks'] as const;
+
+function HeroVideo() {
+  const [ready, setReady] = useState(false);
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const timer = window.setTimeout(() => setReady(true), 1400);
+    return () => window.clearTimeout(timer);
+  }, []);
+  return <div className="hero-video-wrap" aria-hidden="true">
+    <video className="hero-video" autoPlay muted playsInline loop preload="none" poster="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1600&q=70">
+      {ready && <source src="https://videos.pexels.com/video-files/36083260/15302798_1920_1080_60fps.mp4" type="video/mp4" />}
+    </video>
+  </div>;
+}
 
 function ScrollProgress() {
   const { scrollYProgress } = useScroll();
@@ -57,11 +71,7 @@ export default function App() {
     <main>
       <section className="hero" id="home" ref={heroRef}>
         <motion.div className="hero-image-layer" style={{ scale: heroScale, y: heroImageY }} aria-hidden="true" />
-        <div className="hero-video-wrap" aria-hidden="true">
-          <video className="hero-video" autoPlay muted playsInline loop preload="none" poster="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=2000&q=75">
-            <source src="https://videos.pexels.com/video-files/36083260/15302798_1920_1080_60fps.mp4" type="video/mp4" />
-          </video>
-        </div>
+        <HeroVideo />
         <div className="hero-vignette" />
         <div className="hero-topline"><span>26° 12' S — 28° 02' E</span><span className="topline-center"><i/> A PLACE TO ARRIVE</span><span>EST. MMXXVII</span></div>
         <motion.div className="hero-content" style={{ y: heroContentY, opacity: heroContentOpacity }} initial="hidden" animate="visible" variants={{ visible: { transition: { staggerChildren: 0.12 } } }}>
