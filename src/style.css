@@ -1781,3 +1781,17 @@ footer p,footer li,footer small,
 .events-section .events-heading h2 em {
   color: #F6BD28 !important;
 }
+
+
+/* Menu page: editorial food photography accents, aligned with each menu category. */
+.menu-page-panel-heading{position:relative;min-height:116px;padding-right:clamp(112px,18vw,190px);}
+.menu-page-food-image{position:absolute;right:0;top:-8px;width:clamp(112px,16vw,168px);height:112px;object-fit:cover;border-radius:3px 22px 3px 22px;border:1px solid rgba(246,189,40,.65);box-shadow:0 12px 32px rgba(0,0,0,.35);}
+.menu-page-food-image:after{content:"";}
+.menu-page-panel-heading h2{max-width:100%;}
+.menu-page-panel{position:relative;}
+@media(max-width:600px){
+ .menu-page-panel-heading{min-height:92px;padding-right:96px;}
+ .menu-page-food-image{width:82px;height:82px;top:0;border-radius:3px 15px 3px 15px;}
+ .menu-page-panel-heading h2{font-size:clamp(1.8rem,8vw,2.5rem);}
+ .menu-page-panel-heading p{font-size:12px;}
+}
