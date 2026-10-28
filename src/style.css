@@ -1127,3 +1127,65 @@ body{background:#050505;color:#fff5d9}
 
 /* Center the brand in the hero, above the headline. */
 .brand-logo{width:130px;height:auto;object-fit:contain}.hero-content{display:flex;flex-direction:column;align-items:flex-start}.hero-logo{width:clamp(150px,19vw,230px);height:auto;max-height:150px;object-fit:contain;object-position:left center;margin:0 0 28px;filter:drop-shadow(0 8px 24px rgba(0,0,0,.42))}.site-header{justify-content:flex-end}.nav-links{margin-left:0}@media(max-width:760px){.hero-content{margin-left:7.1%;margin-right:7.1%;max-width:560px}.hero-logo{width:clamp(145px,42vw,190px);max-height:115px;margin-bottom:22px}.hero h1{font-size:clamp(54px,13vw,78px)}}
+
+
+/* BRAND CONSISTENCY PASS: one aviation gold, no mixed gold/orange gradients. */
+:root{
+  --gold:#F6BD28;
+  --line:rgba(246,189,40,.22);
+  --violet:#F6BD28;
+}
+.announcement{
+  background:#F6BD28 !important;
+  color:#100C04 !important;
+}
+.announcement-dot{background:#100C04 !important}
+.announcement-line{background:rgba(16,12,4,.4) !important}
+.eyebrow,.topline-center,.hero-stamp,.menu-price,.event-meta,.quote-orb,.back-top,.footer-contact svg,.story-signoff,
+.promo-tag,.weekday-day,.sit-down-note,.event-date,
+.nav-links>a:hover,.menu-tab.active{color:#F6BD28 !important}
+.eyebrow-rule,.topline-center i,.scroll-cue span,.signoff-line{background:#F6BD28 !important}
+.header-book,.mobile-book,.button-outline,.circle-link,.experience-card-bottom>a,
+.weekday-card,.secondary-promo,.menu-tab.active{border-color:rgba(246,189,40,.72) !important}
+.button-gold,.photo-caption,.event-arrow,.promo-price,.promo-sticker,
+.header-book:hover,.mobile-book,.mobile-book:hover,.quote-orb{
+  background:#F6BD28 !important;
+  background-image:none !important;
+  color:#100C04 !important;
+  border-color:#F6BD28 !important;
+}
+.button-gold:hover{background:#F6BD28 !important;filter:brightness(1.08)}
+.promo-tag{color:#F6BD28 !important}
+.promo-price,.promo-sticker{color:#100C04 !important}
+.hero-stamp{
+  color:#FFF5D9 !important;
+  border:1px solid #F6BD28 !important;
+  background:rgba(5,5,5,.82) !important;
+  box-shadow:0 0 0 5px rgba(246,189,40,.12),0 8px 24px rgba(0,0,0,.4) !important;
+  text-shadow:0 1px 4px #000 !important;
+}
+.hero-stamp svg{color:#F6BD28 !important;filter:drop-shadow(0 1px 3px #000)}
+/* Keep decorative circular hero copy readable against the imagery. */
+.hero-stamp span{color:#FFF5D9 !important;font-weight:800;letter-spacing:.12em}
+.hero-stamp:focus-visible,.menu-toggle:focus-visible,.nav-links a:focus-visible{outline:2px solid #F6BD28;outline-offset:3px}
+@media(max-width:900px){
+  /* The announcement occupies the first 31px; place the mobile header directly beneath it. */
+  .site-header{
+    top:31px !important;
+    height:70px !important;
+    min-height:70px !important;
+    background:rgba(5,5,5,.72) !important;
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+  }
+  .site-header .menu-toggle{
+    background:#100C04 !important;
+    color:#F6BD28 !important;
+    border:1px solid #F6BD28 !important;
+  }
+  .site-header .nav-links{top:100% !important;background:#050505 !important;border-bottom:2px solid #F6BD28 !important}
+}
+@media(max-width:480px){
+  .site-header{top:31px !important;height:64px !important;min-height:64px !important}
+  .site-header .nav-links{top:100% !important}
+}
