@@ -2,7 +2,6 @@ import { useMemo, useRef, useState } from 'react';
 import type { FormEvent } from 'react';
 import { AnimatePresence, motion, useReducedMotion, useScroll, useSpring, useTransform } from 'framer-motion';
 import { ArrowDownRight, ArrowRight, ArrowUpRight, CalendarDays, Check, Clock3, Instagram, MapPin, Menu as MenuIcon, Sparkles, UtensilsCrossed, X, Phone, Plane, Users, Bike, Ticket } from 'lucide-react';
-import Scene from './Scene';
 import runwayLogo from './image-removebg-preview (2).png';
 import MenuBlock from './components/ui/menu-1';
 import { events, menuItems } from './data';
@@ -58,7 +57,11 @@ export default function App() {
     <main>
       <section className="hero" id="home" ref={heroRef}>
         <motion.div className="hero-image-layer" style={{ scale: heroScale, y: heroImageY }} aria-hidden="true" />
-        <Scene />
+        <div className="hero-video-wrap" aria-hidden="true">
+          <video className="hero-video" autoPlay muted playsInline loop preload="none" poster="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=2000&q=75">
+            <source src="https://videos.pexels.com/video-files/36083260/15302798_1920_1080_60fps.mp4" type="video/mp4" />
+          </video>
+        </div>
         <div className="hero-vignette" />
         <div className="hero-topline"><span>26° 12' S — 28° 02' E</span><span className="topline-center"><i/> A PLACE TO ARRIVE</span><span>EST. MMXXVII</span></div>
         <motion.div className="hero-content" style={{ y: heroContentY, opacity: heroContentOpacity }} initial="hidden" animate="visible" variants={{ visible: { transition: { staggerChildren: 0.12 } } }}>
