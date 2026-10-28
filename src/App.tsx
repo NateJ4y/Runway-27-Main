@@ -146,7 +146,7 @@ export default function App() {
             <div className="promo-body"><div className="promo-meta"><span><Users size={14}/> FAMILY SPECIAL</span></div><h3>Saturday Kids Eat for Free</h3><p>For every R250 spent, one child under 10 eats free from the kids’ menu. Bring the family, enjoy the aircraft view and let the little ones play.</p><div className="promo-pills"><span>Kids under 10</span><span>Kids menu only</span><span>Pool tables</span></div><a className="promo-text-link" href="https://wa.me/27665760223" target="_blank" rel="noreferrer">Ask us about the offer <ArrowRight size={15}/></a></div>
           </motion.article>
         </div>
-        <div className="weekday-block"><div className="weekday-heading"><div><span className="eyebrow">MONDAY — THURSDAY</span><h3>Weekday specials</h3></div><span className="sit-down-note">SIT-DOWN ONLY</span></div>
+        <div className="weekday-block"><div className="weekday-heading"><div><span className="eyebrow">MONDAY — THURSDAY</span><h3>Weekday specials</h3><p className="weekday-swipe-hint"><span aria-hidden="true">↔</span> SWIPE TO SEE ALL DAYS</p></div><span className="sit-down-note">SIT-DOWN ONLY</span></div>
           <div className="weekday-grid">
             <motion.article className="weekday-card" whileHover={{y:-5}}><span className="weekday-day">MONDAY <i>01</i></span><h4>Steak & draught</h4><p>500g T-bone steak with a 300ml draught beer.</p><strong>R199 <small>ONLY</small></strong></motion.article>
             <motion.article className="weekday-card" whileHover={{y:-5}}><span className="weekday-day">TUESDAY <i>02</i></span><h4>Pizza, pasta & steak</h4><p>50% off all pizza and pasta, plus 300g Portuguese steak.</p><strong>50% <small>OFF PIZZA & PASTA</small></strong></motion.article>
