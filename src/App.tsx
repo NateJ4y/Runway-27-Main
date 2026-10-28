@@ -24,6 +24,22 @@ function HeroVideo() {
   </div>;
 }
 
+function ScrollAtmosphere() {
+  const { scrollYProgress } = useScroll();
+  const starY = useTransform(scrollYProgress, [0, 1], ['0%', '-115%']);
+  const cloudY = useTransform(scrollYProgress, [0, 1], ['0%', '75%']);
+  const orbitX = useTransform(scrollYProgress, [0, 1], ['-4vw', '18vw']);
+  const orbitRotate = useTransform(scrollYProgress, [0, 1], [0, 210]);
+  return <div className="scroll-atmosphere" aria-hidden="true">
+    <motion.div className="atmo-starfield" style={{ y: starY }}>
+      {Array.from({length: 18}, (_, i) => <i key={i} className={`atmo-star atmo-star-${i % 6}`} style={{ left: `${(i * 37 + 9) % 96}%`, top: `${(i * 61 + 5) % 100}%`, animationDelay: `${(i % 7) * -.7}s` }} />)}
+    </motion.div>
+    <motion.div className="atmo-cloud atmo-cloud-one" style={{ y: cloudY, x: orbitX }} />
+    <motion.div className="atmo-cloud atmo-cloud-two" style={{ y: starY, rotate: orbitRotate }} />
+    <motion.div className="atmo-orbit" style={{ x: orbitX, rotate: orbitRotate }}><span/><span/><span/></motion.div>
+  </div>;
+}
+
 function ScrollProgress() {
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, { stiffness: 110, damping: 28, mass: 0.25 });
@@ -56,7 +72,7 @@ export default function App() {
   const submitBooking = (e: FormEvent<HTMLFormElement>) => { e.preventDefault(); setBookingSent(true); };
 
   return <div className="site-shell">
-    <ScrollProgress />
+    <ScrollProgress />\n    <ScrollAtmosphere />
     <div className="announcement"><span className="announcement-dot" /> GOOD TIMES. GOOD FOOD. <span className="announcement-line" /> <span>GERMISTON, SOUTH AFRICA</span></div>
     <header className="site-header">
       
