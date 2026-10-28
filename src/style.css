@@ -1265,3 +1265,76 @@ body{background:#050505;color:#fff5d9}
   .hero-stamp svg{width:11px;height:11px}
   .hero-video{object-position:58% center}
 }
+
+
+/* SCROLL EXPERIENCE: layered atmosphere, reveal choreography, horizontal motion lane. */
+.scroll-atmosphere{position:absolute;inset:0 0 auto;height:100%;z-index:0;pointer-events:none;overflow:clip;opacity:.75}
+.site-shell{position:relative;isolation:isolate}
+.scroll-atmosphere>*{position:absolute;pointer-events:none}
+.atmo-starfield{inset:0;will-change:transform}
+.atmo-star{position:absolute;display:block;width:3px;height:3px;border-radius:50%;background:var(--gold);opacity:.28;box-shadow:0 0 12px rgba(246,189,40,.4);animation:starPulse 4.5s ease-in-out infinite alternate}
+.atmo-star-1{width:2px;height:2px;opacity:.45}
+.atmo-star-2{width:4px;height:4px;opacity:.16}
+.atmo-star-3{width:2px;height:2px}
+.atmo-star-4{width:5px;height:5px;opacity:.12}
+.atmo-star-5{width:2px;height:2px;opacity:.34}
+.atmo-cloud{width:clamp(180px,30vw,440px);height:clamp(70px,12vw,160px);border-radius:50%;filter:blur(35px);background:radial-gradient(ellipse,rgba(246,189,40,.08),rgba(246,189,40,0) 68%);will-change:transform}
+.atmo-cloud-one{top:18%;left:-15%;animation:cloudBreathe 14s ease-in-out infinite alternate}
+.atmo-cloud-two{top:48%;right:-18%;width:clamp(240px,34vw,500px);background:radial-gradient(ellipse,rgba(222,222,222,.055),transparent 68%);animation:cloudBreathe 18s ease-in-out infinite alternate-reverse}
+.atmo-orbit{position:absolute;top:34%;left:78%;width:clamp(90px,15vw,210px);aspect-ratio:1;border:1px solid rgba(246,189,40,.12);border-radius:50%;will-change:transform}
+.atmo-orbit:before,.atmo-orbit:after{content:"";position:absolute;inset:14%;border:1px solid rgba(246,189,40,.09);border-radius:50%;transform:rotate(48deg) scaleX(.4)}
+.atmo-orbit:after{transform:rotate(-48deg) scaleX(.4)}
+.atmo-orbit span{position:absolute;width:5px;height:5px;background:var(--gold);border-radius:50%;box-shadow:0 0 12px rgba(246,189,40,.55)}
+.atmo-orbit span:nth-child(1){top:9%;left:24%}.atmo-orbit span:nth-child(2){right:5%;top:56%}.atmo-orbit span:nth-child(3){left:40%;bottom:3%;width:3px;height:3px}
+@keyframes starPulse{from{opacity:.12;transform:scale(.75)}to{opacity:.55;transform:scale(1.35)}}
+@keyframes cloudBreathe{from{scale:.9}to{scale:1.1}}
+/* Dramatic scroll reveal: supported browsers animate each element through its viewport. */
+@supports(animation-timeline:view()){
+  .experience-card,.promo-card,.weekday-card,.secondary-promo,.event-card,.menu-photo,.story-image,.story-copy,.quote-band .quote-orb,.quote-band p,.quote-caption{
+    animation:cinematicReveal both linear;
+    animation-timeline:view();
+    animation-range:entry 0% entry 70%;
+  }
+  @keyframes cinematicReveal{
+    from{opacity:0;translate:0 52px;scale:.96;filter:blur(4px)}
+    to{opacity:1;translate:0 0;scale:1;filter:blur(0)}
+  }
+}
+/* The weekday offers become a deliberate sideways editorial rail. */
+.weekday-grid{
+  display:grid !important;
+  grid-auto-flow:column !important;
+  grid-auto-columns:minmax(230px,1fr) !important;
+  grid-template-columns:unset !important;
+  overflow-x:auto !important;
+  overscroll-behavior-inline:contain;
+  scroll-snap-type:x mandatory;
+  scrollbar-width:thin;
+  scrollbar-color:var(--gold) rgba(255,255,255,.08);
+  padding:3px 2px 16px !important;
+  gap:14px !important;
+}
+.weekday-grid>.weekday-card{scroll-snap-align:start;min-width:0}
+.weekday-grid::-webkit-scrollbar{height:4px}
+.weekday-grid::-webkit-scrollbar-track{background:rgba(255,255,255,.08)}
+.weekday-grid::-webkit-scrollbar-thumb{background:var(--gold)}
+/* Magnetic-feel interactions without cursor tracking or heavy JS. */
+.button,.header-book,.mobile-book,.event-link,.promo-text-link,.back-top{
+  transform:translateZ(0);
+  transition:transform .32s cubic-bezier(.2,.8,.2,1),background-color .28s ease,color .28s ease,border-color .28s ease;
+}
+.button:hover,.header-book:hover,.mobile-book:hover{transform:translateY(-3px) scale(1.025)}
+.event-link:hover,.promo-text-link:hover,.back-top:hover{transform:translateX(5px)}
+.experience-card,.promo-card,.weekday-card,.secondary-promo,.event-card{transform-origin:center;transition:transform .55s cubic-bezier(.16,1,.3,1),box-shadow .55s ease}
+.experience-card:hover,.promo-card:hover,.weekday-card:hover,.secondary-promo:hover,.event-card:hover{box-shadow:0 22px 55px rgba(0,0,0,.22)}
+@media(max-width:720px){
+  .scroll-atmosphere{opacity:.42}
+  .atmo-orbit{left:65%;top:26%}
+  .atmo-cloud-one{left:-35%}
+  .weekday-grid{grid-auto-columns:minmax(78vw,1fr) !important}
+}
+@media(prefers-reduced-motion:reduce){
+  .scroll-atmosphere{display:none}
+  .atmo-star,.atmo-cloud{animation:none!important}
+  .experience-card,.promo-card,.weekday-card,.secondary-promo,.event-card,.menu-photo,.story-image,.story-copy,.quote-band .quote-orb,.quote-band p,.quote-caption{animation:none!important;filter:none!important}
+}
