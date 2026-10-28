@@ -1189,3 +1189,79 @@ body{background:#050505;color:#fff5d9}
   .site-header{top:31px !important;height:64px !important;min-height:64px !important}
   .site-header .nav-links{top:100% !important}
 }
+
+
+/* HERO REDESIGN — tighter composition, cinematic landing footage, one gold accent. */
+.hero{
+  min-height:680px !important;
+  height:min(860px,100svh) !important;
+  max-height:900px !important;
+  align-items:center !important;
+  overflow:hidden;
+}
+.hero-image-layer{display:none !important}
+.hero-video-wrap{
+  position:absolute;inset:0;z-index:-3;overflow:hidden;background:#09090d;
+}
+.hero-video{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  opacity:.78;filter:saturate(.78) contrast(1.06);
+  animation:heroVideoReveal 1.8s ease-out both,heroVideoDrift 24s ease-in-out infinite alternate;
+}
+.hero-vignette{
+  z-index:-2 !important;
+  background:
+    linear-gradient(90deg,rgba(5,5,5,.88) 0%,rgba(5,5,5,.69) 33%,rgba(5,5,5,.22) 72%,rgba(5,5,5,.35) 100%),
+    linear-gradient(0deg,#050505 0%,rgba(5,5,5,.08) 25%,rgba(5,5,5,.08) 72%,rgba(5,5,5,.45) 100%) !important;
+}
+.hero-content{
+  margin-left:8.2% !important;
+  margin-top:58px !important;
+  max-width:660px !important;
+  width:min(660px,74vw);
+}
+.hero-logo{
+  width:clamp(150px,17vw,225px) !important;height:auto !important;object-fit:contain !important;
+  margin:0 0 12px !important;filter:drop-shadow(0 8px 22px rgba(0,0,0,.45));
+}
+.hero .eyebrow{margin-bottom:15px !important}
+.hero h1{
+  font-size:clamp(64px,8.2vw,118px) !important;
+  line-height:.88 !important;letter-spacing:-.065em !important;
+  margin-bottom:22px !important;text-shadow:0 5px 30px rgba(0,0,0,.28);
+}
+.hero-copy{max-width:410px !important;font-size:14px !important;line-height:1.7 !important;margin-bottom:25px !important;color:#f0ece6 !important}
+.hero-actions{gap:20px !important}
+.hero-topline{top:135px !important}
+.hero-bottomline{bottom:24px !important}
+.hero-stamp{right:8.5% !important;bottom:17% !important;z-index:2}
+@keyframes heroVideoReveal{from{opacity:0;transform:scale(1.035)}to{opacity:.78;transform:scale(1)}}
+@keyframes heroVideoDrift{from{transform:scale(1)}to{transform:scale(1.055)}}
+@media(prefers-reduced-motion:reduce){
+  .hero-video{animation:none !important;transform:none !important}
+}
+@media(max-width:900px){
+  .hero{min-height:720px !important;height:calc(100svh - 31px) !important;max-height:900px !important}
+  .hero-content{margin-left:6.5% !important;margin-top:62px !important;width:min(650px,86vw)}
+  .hero-topline{top:122px !important;left:6.5% !important;right:6.5% !important}
+  .hero-topline>span:last-child{display:none}
+  .hero-stamp{right:6% !important;bottom:14% !important;width:78px !important;height:78px !important}
+  .hero-vignette{background:linear-gradient(90deg,rgba(5,5,5,.82),rgba(5,5,5,.48) 75%,rgba(5,5,5,.35)),linear-gradient(0deg,#050505 0%,transparent 32%,rgba(5,5,5,.38) 100%) !important}
+}
+@media(max-width:600px){
+  .hero{min-height:690px !important;height:calc(100svh - 31px) !important;max-height:820px !important;align-items:center !important}
+  .hero-content{margin:48px 0 0 6% !important;width:88% !important;max-width:460px !important}
+  .hero-logo{width:148px !important;margin-bottom:10px !important}
+  .hero .eyebrow{font-size:8px !important;letter-spacing:.15em !important;margin-bottom:14px !important}
+  .hero h1{font-size:clamp(56px,13.5vw,78px) !important;line-height:.92 !important;margin-bottom:18px !important}
+  .hero-copy{font-size:12px !important;line-height:1.65 !important;max-width:310px !important;margin-bottom:20px !important}
+  .hero-actions{align-items:flex-start !important;flex-wrap:wrap !important;gap:15px !important}
+  .hero-topline{top:108px !important;left:6% !important;right:6% !important;font-size:7px !important;letter-spacing:.1em !important}
+  .topline-center{margin-left:auto}
+  .hero-bottomline{left:6% !important;right:6% !important;bottom:18px !important;font-size:7px !important}
+  .hero-bottomline>span:last-child{display:none}
+  .scroll-cue span{height:22px !important}
+  .hero-stamp{right:6% !important;bottom:13% !important;width:66px !important;height:66px !important;font-size:6px !important;gap:3px !important}
+  .hero-stamp svg{width:11px;height:11px}
+  .hero-video{object-position:58% center}
+}
