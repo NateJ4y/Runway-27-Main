@@ -107,7 +107,7 @@ export default function App() {
           <motion.p className="eyebrow" variants={fadeUp}><span className="eyebrow-rule"/> YOUR TABLE WITH A VIEW</motion.p>
           <motion.h1 variants={fadeUp}>Good times.<br/><em>Good food.</em></motion.h1>
           <motion.p className="hero-copy" variants={fadeUp}>Good food, family-friendly fun and front-row views of the runway. Your next favourite spot is in Germiston.</motion.p>
-          <motion.div className="hero-actions" variants={fadeUp}><a className="button button-gold" href="https://wa.me/27665760223" target="_blank" rel="noreferrer">Come through <ArrowUpRight size={17}/></a><a className="text-link" href="#experience">Explore Runway27 <ArrowDownRight size={16}/></a></motion.div>
+          <motion.div className="hero-actions" variants={fadeUp}><a className="button button-gold" href="https://wa.me/27665760223" target="_blank" rel="noreferrer">Come through <ArrowUpRight size={17}/></a><a className="text-link" href="/#experience">Explore Runway27 <ArrowDownRight size={16}/></a></motion.div>
         </motion.div>
         <div className="hero-bottomline"><span>DINING / LOUNGE / EVENTS</span><span className="scroll-cue"><span/> SCROLL TO DISCOVER</span><span>YOUR NIGHT, REDEFINED</span></div>
         <div className="hero-stamp"><Sparkles size={14}/><span>MADE FOR<br/>THE MOMENT</span></div>
@@ -122,15 +122,15 @@ export default function App() {
         <div className="experience-grid">
           <motion.article className="experience-card experience-dining" whileHover={{ y: -5 }} transition={{ duration: .3 }}>
             <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1300&q=85" alt="Elegant restaurant table set for dinner" loading="lazy"/>
-            <div className="card-shade"/><span className="card-number">01 — GATHER</span><div className="experience-card-bottom"><div><h3>Dining</h3><p>Beautifully made. Better shared.</p></div><a href="#menu" aria-label="Explore the menu"><ArrowUpRight/></a></div>
+            <div className="card-shade"/><span className="card-number">01 — GATHER</span><div className="experience-card-bottom"><div><h3>Dining</h3><p>Beautifully made. Better shared.</p></div><a href="/menu" aria-label="Explore the menu"><ArrowUpRight/></a></div>
           </motion.article>
           <motion.article className="experience-card experience-lounge" whileHover={{ y: -5 }} transition={{ duration: .3 }}>
             <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1000&q=85" alt="Warm, intimate cocktail lounge" loading="lazy"/>
-            <div className="card-shade"/><span className="card-number">02 — UNWIND</span><div className="experience-card-bottom"><div><h3>The lounge</h3><p>One more round. One more song.</p></div><a href="#events" aria-label="Explore lounge events"><ArrowUpRight/></a></div>
+            <div className="card-shade"/><span className="card-number">02 — UNWIND</span><div className="experience-card-bottom"><div><h3>The lounge</h3><p>One more round. One more song.</p></div><a href="/whats-on" aria-label="Explore lounge events"><ArrowUpRight/></a></div>
           </motion.article>
           <motion.article className="experience-card experience-events" whileHover={{ y: -5 }} transition={{ duration: .3 }}>
             <img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=1000&q=85" alt="Live music and lights at a night event" loading="lazy"/>
-            <div className="card-shade"/><span className="card-number">03 — COME ALIVE</span><div className="experience-card-bottom"><div><h3>Events</h3><p>Make the night a little legendary.</p></div><a href="#events" aria-label="See upcoming events"><ArrowUpRight/></a></div>
+            <div className="card-shade"/><span className="card-number">03 — COME ALIVE</span><div className="experience-card-bottom"><div><h3>Events</h3><p>Make the night a little legendary.</p></div><a href="/whats-on" aria-label="See upcoming events"><ArrowUpRight/></a></div>
           </motion.article>
         </div>
       </motion.section>
@@ -188,7 +188,7 @@ export default function App() {
 
     <footer className="site-footer">
       <div className="footer-top"><a href="#home" className="brand footer-brand"><img className="brand-logo" src={runwayLogo} alt="Runway 27 Kitchen & Bar" /></a><p>Runway 27 Kitchen &amp; Bar.<br/>Good food, family fun and runway views.</p><a href="#home" className="back-top">BACK TO TOP <ArrowUpRight size={14}/></a></div>
-      <div className="footer-bottom"><span>© 2026 RUNWAY 27 PUB &amp; GRILL</span><div><a href="#experience">EXPERIENCE</a><a href="#menu">MENU</a><a href="#events">EVENTS</a></div><div className="footer-social"><a href="#contact" aria-label="Instagram"><Instagram size={16}/></a><a href="tel:+27665760223" aria-label="Call Runway27"><Phone size={16}/></a></div></div>
+      <div className="footer-bottom"><span>© 2026 RUNWAY 27 PUB &amp; GRILL</span><div><a href="/#experience">EXPERIENCE</a><a href="/menu">MENU</a><a href="/whats-on">EVENTS</a></div><div className="footer-social"><a href="/#contact" aria-label="Instagram"><Instagram size={16}/></a><a href="tel:+27665760223" aria-label="Call Runway27"><Phone size={16}/></a></div></div>
       <div id="contact" className="footer-contact"><a href="https://www.google.com/maps/search/?api=1&query=Transvaal+Aviation+Building%2C+Dakota+Crescent%2C+Germiston" target="_blank" rel="noreferrer"><MapPin size={14}/> Transvaal Aviation Building, Dakota Crescent, Germiston <ArrowUpRight size={13}/></a><a href="tel:+27665760223"><Phone size={14}/> 066 576 0223</a><a href="https://wa.me/27665760223" target="_blank" rel="noreferrer"><Phone size={14}/> WhatsApp Runway27 <ArrowUpRight size={13}/></a><span><UtensilsCrossed size={13}/> Dining · Family fun · Events</span></div>
     </footer>
 
