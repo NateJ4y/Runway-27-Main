@@ -1756,3 +1756,5 @@ footer p,footer li,footer small,
  .menu-page-cta .button{width:100%;text-align:center}
  .menu-page-search{min-height:50px}
 }
+
+.page-menu main::before{display:none!important}
