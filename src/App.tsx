@@ -58,10 +58,9 @@ export default function App() {
   const [bookingOpen, setBookingOpen] = useState(false);
   const [bookingSent, setBookingSent] = useState(false);
   const [form, setForm] = useState({ name: '', email: '', date: '', time: '19:00', guests: '2', notes: '' });
-  const currentPath = window.location.pathname.replace(/\\/$/, '') || '/';
+  const currentPath = window.location.pathname.replace(/\/$/, '') || '/';
   const isMenuPage = currentPath === '/menu';
   const isWhatsOnPage = currentPath === '/whats-on' || currentPath === '/whats-on-at-runway27';
-  const isHomePage = !isMenuPage && !isWhatsOnPage;
   const closeNav = () => setMenuOpen(false);
   const openBooking = () => { setBookingSent(false); setBookingOpen(true); closeNav(); };
   const submitBooking = (e: FormEvent<HTMLFormElement>) => { e.preventDefault(); setBookingSent(true); };
@@ -90,7 +89,7 @@ export default function App() {
     <header className="site-header">
       
       <nav id="primary-navigation" className={menuOpen ? 'nav-links nav-open' : 'nav-links'} aria-label="Main navigation">
-        <a href="/#experience" onClick={closeNav}>The experience</a><a href="/#specials" onClick={closeNav}>Specials</a><a href="/menu" onClick={closeNav} aria-current={isMenuPage ? "page" : undefined}>Menu</a><a href="/whats-on" onClick={closeNav} aria-current={isWhatsOnPage ? "page" : undefined}>What’s on</a><a href="/#contact" onClick={closeNav}>Find us</a>
+        <a href="/#experience" onClick={closeNav}>The experience</a><a href="/#specials" onClick={closeNav}>Specials</a><a href="/menu" onClick={closeNav}>Menu</a><a href="/whats-on" onClick={closeNav}>What’s on</a><a href="/#contact" onClick={closeNav}>Find us</a>
         <button className="mobile-book" onClick={openBooking}>Book a table <ArrowUpRight size={15}/></button>
       </nav>
       <button className="header-book" onClick={openBooking}>Book a table <ArrowUpRight size={15}/></button>
@@ -98,7 +97,7 @@ export default function App() {
     </header>
 
     <main>
-      {isHomePage && <section className="hero" id="home" ref={heroRef}>
+      <section className="hero" id="home" ref={heroRef}>
         <motion.div className="hero-image-layer" style={{ scale: heroScale, y: heroImageY }} aria-hidden="true" />
         <HeroVideo />
         <div className="hero-vignette" />
@@ -167,9 +166,9 @@ export default function App() {
 
       <MenuBlock />
 
-      {isHomePage && <motion.section className="quote-band" initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.06 }} variants={sectionMotion}><div className="quote-orb">R<span>27</span></div><p>“The best nights don’t need a reason.<br/><em>Just the right place.”</em></p><span className="quote-caption">YOUR TABLE IS WAITING</span></motion.section>
+      <motion.section className="quote-band" initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.06 }} variants={sectionMotion}><div className="quote-orb">R<span>27</span></div><p>“The best nights don’t need a reason.<br/><em>Just the right place.”</em></p><span className="quote-caption">YOUR TABLE IS WAITING</span></motion.section>
 
-      {isWhatsOnPage && <motion.section className="events-section section-pad" id="events" initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.06 }} variants={sectionMotion}>
+      <motion.section className="events-section section-pad" id="events" initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.06 }} variants={sectionMotion}>
         <div className="section-kicker"><span>04 / ENTERTAINMENT</span><span>MAKE A NIGHT OF IT</span></div>
         <div className="events-heading"><h2>Make a night<br/><em>of it.</em></h2><p>Live bands, DJ nights, a dance floor and a private VIP room. Come for dinner and stay for the atmosphere.</p></div>
         <div className="events-grid">{events.map((event, i) => <motion.article className="event-card" key={event.title} initial="hidden" whileInView="visible" viewport={{ once: true, amount: .15 }} variants={{ hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0, transition: { duration: .6, delay: i * .12 } } }}><div className="event-image"><img src={event.image} alt="" loading="lazy"/><span className="event-date">{event.date}</span><span className="event-arrow"><ArrowUpRight/></span></div><div className="event-meta">{event.type}</div><h3>{event.title}</h3><p>{event.description}</p><button className="event-link" onClick={openBooking}>Enquire about this event <ArrowRight size={15}/></button></motion.article>)}</div>
@@ -187,7 +186,7 @@ export default function App() {
       </motion.section>
     </main>
 
-    {isHomePage && <footer className="site-footer">
+    <footer className="site-footer">
       <div className="footer-top"><a href="#home" className="brand footer-brand"><img className="brand-logo" src={runwayLogo} alt="Runway 27 Kitchen & Bar" /></a><p>Runway 27 Kitchen &amp; Bar.<br/>Good food, family fun and runway views.</p><a href="#home" className="back-top">BACK TO TOP <ArrowUpRight size={14}/></a></div>
       <div className="footer-bottom"><span>© 2026 RUNWAY 27 PUB &amp; GRILL</span><div><a href="#experience">EXPERIENCE</a><a href="#menu">MENU</a><a href="#events">EVENTS</a></div><div className="footer-social"><a href="#contact" aria-label="Instagram"><Instagram size={16}/></a><a href="tel:+27665760223" aria-label="Call Runway27"><Phone size={16}/></a></div></div>
       <div id="contact" className="footer-contact"><a href="https://www.google.com/maps/search/?api=1&query=Transvaal+Aviation+Building%2C+Dakota+Crescent%2C+Germiston" target="_blank" rel="noreferrer"><MapPin size={14}/> Transvaal Aviation Building, Dakota Crescent, Germiston <ArrowUpRight size={13}/></a><a href="tel:+27665760223"><Phone size={14}/> 066 576 0223</a><a href="https://wa.me/27665760223" target="_blank" rel="noreferrer"><Phone size={14}/> WhatsApp Runway27 <ArrowUpRight size={13}/></a><span><UtensilsCrossed size={13}/> Dining · Family fun · Events</span></div>
